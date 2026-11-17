@@ -1,0 +1,5966 @@
+[
+ {
+  "nurse_id": "N001",
+  "name": "Salma Yadav",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.5515,
+  "lon": 77.25403,
+  "years_experience": 2,
+  "rating": 4.8,
+  "review_count": 22,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Sat-day",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N002",
+  "name": "Rekha Deshmukh",
+  "skills": [
+   "baby_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.54516,
+  "lon": 73.88255,
+  "years_experience": 5,
+  "rating": 4.7,
+  "review_count": 25,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N003",
+  "name": "Amit Verma",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi",
+   "Urdu"
+  ],
+  "city": "Delhi",
+  "lat": 28.52647,
+  "lon": 77.18982,
+  "years_experience": 1,
+  "rating": 4.6,
+  "review_count": 11,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Fri-day",
+   "Fri-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N004",
+  "name": "Jyoti Mishra",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.08551,
+  "lon": 72.91524,
+  "years_experience": 7,
+  "rating": 4.6,
+  "review_count": 40,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N005",
+  "name": "Sanjay D'Souza",
+  "skills": [
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.63789,
+  "lon": 77.15467,
+  "years_experience": 2,
+  "rating": 4.5,
+  "review_count": 14,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day"
+  ]
+ },
+ {
+  "nurse_id": "N006",
+  "name": "Geeta Kaur",
+  "skills": [
+   "dementia_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.0892,
+  "lon": 72.95925,
+  "years_experience": 4,
+  "rating": 3.9,
+  "review_count": 26,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N007",
+  "name": "Mohan Nair",
+  "skills": [
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.47162,
+  "lon": 73.83178,
+  "years_experience": 1,
+  "rating": 5.0,
+  "review_count": 8,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N008",
+  "name": "Deepa Pereira",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Punjabi",
+   "Urdu"
+  ],
+  "city": "Delhi",
+  "lat": 28.637,
+  "lon": 77.1996,
+  "years_experience": 6,
+  "rating": 4.5,
+  "review_count": 35,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N009",
+  "name": "Asha Rao",
+  "skills": [
+   "baby_care",
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Pune",
+  "lat": 18.49741,
+  "lon": 73.94439,
+  "years_experience": 4,
+  "rating": 4.6,
+  "review_count": 21,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N010",
+  "name": "Rosy Nair",
+  "skills": [
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Urdu"
+  ],
+  "city": "Delhi",
+  "lat": 28.60463,
+  "lon": 77.16724,
+  "years_experience": 23,
+  "rating": 4.1,
+  "review_count": 141,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N011",
+  "name": "Asha Verma",
+  "skills": [
+   "baby_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.02339,
+  "lon": 72.87204,
+  "years_experience": 25,
+  "rating": 5.0,
+  "review_count": 133,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N012",
+  "name": "Pooja Pereira",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.53433,
+  "lon": 73.82338,
+  "years_experience": 3,
+  "rating": 5.0,
+  "review_count": 15,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Wed-day",
+   "Wed-night",
+   "Sat-day",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N013",
+  "name": "Kavita Shinde",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Urdu"
+  ],
+  "city": "Delhi",
+  "lat": 28.54727,
+  "lon": 77.18071,
+  "years_experience": 14,
+  "rating": 4.6,
+  "review_count": 72,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N014",
+  "name": "Jaspreet Shah",
+  "skills": [
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.5984,
+  "lon": 73.89166,
+  "years_experience": 4,
+  "rating": 4.0,
+  "review_count": 22,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night"
+  ]
+ },
+ {
+  "nurse_id": "N015",
+  "name": "Neha Mehta",
+  "skills": [
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.70457,
+  "lon": 77.24725,
+  "years_experience": 3,
+  "rating": 4.5,
+  "review_count": 21,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N016",
+  "name": "Manisha Nair",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.08997,
+  "lon": 72.89176,
+  "years_experience": 2,
+  "rating": 4.1,
+  "review_count": 18,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N017",
+  "name": "Ravi Shinde",
+  "skills": [
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 18.95579,
+  "lon": 72.97396,
+  "years_experience": 2,
+  "rating": 4.5,
+  "review_count": 20,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N018",
+  "name": "Neha Ansari",
+  "skills": [
+   "dementia_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.49678,
+  "lon": 73.88797,
+  "years_experience": 0,
+  "rating": 4.8,
+  "review_count": 6,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N019",
+  "name": "Geeta Deshmukh",
+  "skills": [
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.71715,
+  "lon": 77.12607,
+  "years_experience": 3,
+  "rating": 4.5,
+  "review_count": 24,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N020",
+  "name": "Komal Bhosale",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.19306,
+  "lon": 73.00232,
+  "years_experience": 6,
+  "rating": 4.0,
+  "review_count": 30,
+  "available_slots": [
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N021",
+  "name": "Salma Thakur",
+  "skills": [
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.226,
+  "lon": 72.89108,
+  "years_experience": 7,
+  "rating": 4.7,
+  "review_count": 40,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N022",
+  "name": "Neha Mehta",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.59376,
+  "lon": 77.08955,
+  "years_experience": 3,
+  "rating": 4.5,
+  "review_count": 24,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N023",
+  "name": "Asha Bhosale",
+  "skills": [
+   "baby_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.71164,
+  "lon": 77.15079,
+  "years_experience": 6,
+  "rating": 4.1,
+  "review_count": 34,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N024",
+  "name": "Geeta Bhosale",
+  "skills": [
+   "baby_care",
+   "dementia_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.62876,
+  "lon": 77.19825,
+  "years_experience": 7,
+  "rating": 4.4,
+  "review_count": 45,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N025",
+  "name": "Nisha Iyer",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.03007,
+  "lon": 72.93171,
+  "years_experience": 5,
+  "rating": 3.9,
+  "review_count": 33,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Thu-day",
+   "Thu-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N026",
+  "name": "Salma Iyer",
+  "skills": [
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.71057,
+  "lon": 77.13566,
+  "years_experience": 4,
+  "rating": 4.2,
+  "review_count": 30,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N027",
+  "name": "Rahul Kaur",
+  "skills": [
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Urdu"
+  ],
+  "city": "Delhi",
+  "lat": 28.52848,
+  "lon": 77.23578,
+  "years_experience": 3,
+  "rating": 4.5,
+  "review_count": 20,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N028",
+  "name": "Priya D'Souza",
+  "skills": [
+   "dementia_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.40419,
+  "lon": 73.83807,
+  "years_experience": 8,
+  "rating": 4.4,
+  "review_count": 41,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N029",
+  "name": "Arjun Verma",
+  "skills": [
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.53956,
+  "lon": 73.80456,
+  "years_experience": 4,
+  "rating": 4.6,
+  "review_count": 21,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N030",
+  "name": "Jyoti Verma",
+  "skills": [
+   "baby_care",
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.66336,
+  "lon": 73.88191,
+  "years_experience": 3,
+  "rating": 4.2,
+  "review_count": 21,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N031",
+  "name": "Ravi Deshmukh",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.46258,
+  "lon": 73.80179,
+  "years_experience": 2,
+  "rating": 4.6,
+  "review_count": 13,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N032",
+  "name": "Nisha Fernandes",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.55256,
+  "lon": 77.20323,
+  "years_experience": 9,
+  "rating": 4.5,
+  "review_count": 49,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N033",
+  "name": "Kavita Gupta",
+  "skills": [
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.1361,
+  "lon": 72.94896,
+  "years_experience": 4,
+  "rating": 5.0,
+  "review_count": 24,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N034",
+  "name": "Mary Shah",
+  "skills": [
+   "elderly_care",
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.11421,
+  "lon": 72.89815,
+  "years_experience": 13,
+  "rating": 4.6,
+  "review_count": 72,
+  "available_slots": [
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N035",
+  "name": "Imran More",
+  "skills": [
+   "baby_care",
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi",
+   "Urdu"
+  ],
+  "city": "Mumbai",
+  "lat": 19.01105,
+  "lon": 72.86864,
+  "years_experience": 10,
+  "rating": 4.2,
+  "review_count": 65,
+  "available_slots": [
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Sat-day",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N036",
+  "name": "Imran Joshi",
+  "skills": [
+   "baby_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Gujarati",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.04576,
+  "lon": 72.84002,
+  "years_experience": 13,
+  "rating": 3.7,
+  "review_count": 84,
+  "available_slots": [
+   "Mon-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day"
+  ]
+ },
+ {
+  "nurse_id": "N037",
+  "name": "Amit Khan",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Pune",
+  "lat": 18.63064,
+  "lon": 73.83654,
+  "years_experience": 25,
+  "rating": 4.5,
+  "review_count": 127,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N038",
+  "name": "Anita Mishra",
+  "skills": [
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.49768,
+  "lon": 77.24899,
+  "years_experience": 1,
+  "rating": 4.5,
+  "review_count": 10,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N039",
+  "name": "Priya Khan",
+  "skills": [
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "Urdu"
+  ],
+  "city": "Delhi",
+  "lat": 28.61222,
+  "lon": 77.22253,
+  "years_experience": 4,
+  "rating": 4.2,
+  "review_count": 31,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N040",
+  "name": "Swati Thakur",
+  "skills": [
+   "dementia_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.08215,
+  "lon": 72.86885,
+  "years_experience": 2,
+  "rating": 4.2,
+  "review_count": 14,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N041",
+  "name": "Salma Deshmukh",
+  "skills": [
+   "baby_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.46838,
+  "lon": 73.86385,
+  "years_experience": 5,
+  "rating": 5.0,
+  "review_count": 42,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N042",
+  "name": "Meera Nair",
+  "skills": [
+   "baby_care",
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.66708,
+  "lon": 77.23845,
+  "years_experience": 7,
+  "rating": 4.9,
+  "review_count": 37,
+  "available_slots": [
+   "Wed-day",
+   "Wed-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N043",
+  "name": "Anita Fernandes",
+  "skills": [
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.47587,
+  "lon": 73.91216,
+  "years_experience": 2,
+  "rating": 4.5,
+  "review_count": 17,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N044",
+  "name": "Usha Yadav",
+  "skills": [
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.66613,
+  "lon": 77.29776,
+  "years_experience": 6,
+  "rating": 4.3,
+  "review_count": 38,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N045",
+  "name": "Jaspreet Fernandes",
+  "skills": [
+   "baby_care",
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi",
+   "Urdu"
+  ],
+  "city": "Delhi",
+  "lat": 28.51459,
+  "lon": 77.1463,
+  "years_experience": 6,
+  "rating": 4.3,
+  "review_count": 36,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N046",
+  "name": "Deepak Kulkarni",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.67307,
+  "lon": 77.17553,
+  "years_experience": 3,
+  "rating": 4.4,
+  "review_count": 23,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N047",
+  "name": "Lata Kaur",
+  "skills": [
+   "physio_support"
+  ],
+  "languages": [
+   "Hindi",
+   "Urdu"
+  ],
+  "city": "Delhi",
+  "lat": 28.57524,
+  "lon": 77.20538,
+  "years_experience": 4,
+  "rating": 4.9,
+  "review_count": 20,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N048",
+  "name": "Rekha Singh",
+  "skills": [
+   "dementia_care",
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.07651,
+  "lon": 72.9254,
+  "years_experience": 10,
+  "rating": 4.7,
+  "review_count": 54,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N049",
+  "name": "Swati Iyer",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Urdu"
+  ],
+  "city": "Mumbai",
+  "lat": 19.06157,
+  "lon": 72.88382,
+  "years_experience": 5,
+  "rating": 4.3,
+  "review_count": 35,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N050",
+  "name": "Sanjay Shinde",
+  "skills": [
+   "dementia_care",
+   "physio_support"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.6176,
+  "lon": 77.21123,
+  "years_experience": 5,
+  "rating": 4.8,
+  "review_count": 21,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N051",
+  "name": "Mary Gaikwad",
+  "skills": [
+   "dementia_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.52884,
+  "lon": 77.13778,
+  "years_experience": 16,
+  "rating": 3.8,
+  "review_count": 64,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N052",
+  "name": "Deepa Pawar",
+  "skills": [
+   "baby_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.12728,
+  "lon": 72.82969,
+  "years_experience": 5,
+  "rating": 4.7,
+  "review_count": 30,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N053",
+  "name": "Kavita Shinde",
+  "skills": [
+   "baby_care",
+   "dementia_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.51426,
+  "lon": 73.81767,
+  "years_experience": 3,
+  "rating": 3.9,
+  "review_count": 28,
+  "available_slots": [
+   "Thu-day",
+   "Fri-day",
+   "Sat-day"
+  ]
+ },
+ {
+  "nurse_id": "N054",
+  "name": "Amit Chauhan",
+  "skills": [
+   "baby_care",
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.11972,
+  "lon": 72.8431,
+  "years_experience": 0,
+  "rating": 4.9,
+  "review_count": 4,
+  "available_slots": [
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N055",
+  "name": "Harpreet Rao",
+  "skills": [
+   "baby_care",
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.57038,
+  "lon": 77.17129,
+  "years_experience": 9,
+  "rating": 4.1,
+  "review_count": 56,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N056",
+  "name": "Geeta Nair",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.06292,
+  "lon": 72.94932,
+  "years_experience": 5,
+  "rating": 4.2,
+  "review_count": 31,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N057",
+  "name": "Meera Patil",
+  "skills": [
+   "baby_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.48884,
+  "lon": 77.24586,
+  "years_experience": 4,
+  "rating": 5.0,
+  "review_count": 22,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N058",
+  "name": "Aarti Gupta",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 18.98067,
+  "lon": 72.87027,
+  "years_experience": 17,
+  "rating": 4.4,
+  "review_count": 94,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N059",
+  "name": "Deepak Shinde",
+  "skills": [
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.06945,
+  "lon": 72.86253,
+  "years_experience": 4,
+  "rating": 4.3,
+  "review_count": 26,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N060",
+  "name": "Vijay D'Souza",
+  "skills": [
+   "dementia_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.51758,
+  "lon": 77.20754,
+  "years_experience": 4,
+  "rating": 4.0,
+  "review_count": 23,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N061",
+  "name": "Amit Pawar",
+  "skills": [
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Punjabi",
+   "Urdu"
+  ],
+  "city": "Delhi",
+  "lat": 28.65006,
+  "lon": 77.19805,
+  "years_experience": 3,
+  "rating": 4.4,
+  "review_count": 27,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N062",
+  "name": "Rahul More",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.13427,
+  "lon": 72.87938,
+  "years_experience": 9,
+  "rating": 4.3,
+  "review_count": 55,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N063",
+  "name": "Farida Bhosale",
+  "skills": [
+   "baby_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.09764,
+  "lon": 72.79426,
+  "years_experience": 3,
+  "rating": 4.2,
+  "review_count": 25,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N064",
+  "name": "Shweta Thakur",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.57042,
+  "lon": 77.15777,
+  "years_experience": 1,
+  "rating": 3.6,
+  "review_count": 7,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N065",
+  "name": "Asha Nair",
+  "skills": [
+   "baby_care",
+   "dementia_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Urdu"
+  ],
+  "city": "Delhi",
+  "lat": 28.6337,
+  "lon": 77.25566,
+  "years_experience": 5,
+  "rating": 4.0,
+  "review_count": 33,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N066",
+  "name": "Manisha Mishra",
+  "skills": [
+   "baby_care",
+   "dementia_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.5077,
+  "lon": 73.88662,
+  "years_experience": 10,
+  "rating": 4.2,
+  "review_count": 49,
+  "available_slots": [
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N067",
+  "name": "Anita Joshi",
+  "skills": [
+   "baby_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.10932,
+  "lon": 72.89626,
+  "years_experience": 2,
+  "rating": 4.5,
+  "review_count": 21,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N068",
+  "name": "Ravi Sharma",
+  "skills": [
+   "elderly_care",
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.4855,
+  "lon": 73.83477,
+  "years_experience": 4,
+  "rating": 4.1,
+  "review_count": 28,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N069",
+  "name": "Geeta Deshmukh",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.61312,
+  "lon": 77.12178,
+  "years_experience": 4,
+  "rating": 3.8,
+  "review_count": 17,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N070",
+  "name": "Shweta Bhosale",
+  "skills": [
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.64105,
+  "lon": 77.22825,
+  "years_experience": 1,
+  "rating": 4.4,
+  "review_count": 10,
+  "available_slots": [
+   "Wed-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N071",
+  "name": "Vijay Fernandes",
+  "skills": [
+   "baby_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.55504,
+  "lon": 73.85949,
+  "years_experience": 7,
+  "rating": 4.5,
+  "review_count": 36,
+  "available_slots": [
+   "Wed-day",
+   "Wed-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N072",
+  "name": "Deepa Nair",
+  "skills": [
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.5593,
+  "lon": 73.76717,
+  "years_experience": 12,
+  "rating": 3.9,
+  "review_count": 69,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N073",
+  "name": "Deepak Naik",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.53384,
+  "lon": 73.85682,
+  "years_experience": 4,
+  "rating": 4.1,
+  "review_count": 27,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N074",
+  "name": "Radha Patil",
+  "skills": [
+   "dementia_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.51192,
+  "lon": 73.90908,
+  "years_experience": 1,
+  "rating": 3.8,
+  "review_count": 13,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day"
+  ]
+ },
+ {
+  "nurse_id": "N075",
+  "name": "Meera Rao",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.57904,
+  "lon": 77.07246,
+  "years_experience": 8,
+  "rating": 4.2,
+  "review_count": 34,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Wed-day",
+   "Wed-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N076",
+  "name": "Vaishali Joshi",
+  "skills": [
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 18.9939,
+  "lon": 72.86633,
+  "years_experience": 8,
+  "rating": 4.3,
+  "review_count": 33,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N077",
+  "name": "Sunita Joshi",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Gujarati",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.01416,
+  "lon": 72.88193,
+  "years_experience": 1,
+  "rating": 4.2,
+  "review_count": 9,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day"
+  ]
+ },
+ {
+  "nurse_id": "N078",
+  "name": "Nisha Mehta",
+  "skills": [
+   "baby_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 18.92982,
+  "lon": 72.8187,
+  "years_experience": 1,
+  "rating": 3.7,
+  "review_count": 9,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N079",
+  "name": "Vaishali Chauhan",
+  "skills": [
+   "physio_support"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.05773,
+  "lon": 72.85312,
+  "years_experience": 0,
+  "rating": 4.3,
+  "review_count": 6,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N080",
+  "name": "Savita Rao",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.61734,
+  "lon": 77.14196,
+  "years_experience": 2,
+  "rating": 3.8,
+  "review_count": 10,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N081",
+  "name": "Neha Patil",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.59594,
+  "lon": 77.24933,
+  "years_experience": 8,
+  "rating": 4.5,
+  "review_count": 33,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N082",
+  "name": "Farida Iyer",
+  "skills": [
+   "baby_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.54224,
+  "lon": 77.14513,
+  "years_experience": 13,
+  "rating": 4.5,
+  "review_count": 74,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N083",
+  "name": "Asha Shinde",
+  "skills": [
+   "baby_care"
+  ],
+  "languages": [
+   "English",
+   "Punjabi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.10318,
+  "lon": 72.8507,
+  "years_experience": 2,
+  "rating": 3.3,
+  "review_count": 16,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N084",
+  "name": "Kavita Pawar",
+  "skills": [
+   "dementia_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.58201,
+  "lon": 73.74141,
+  "years_experience": 9,
+  "rating": 4.9,
+  "review_count": 49,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Fri-day"
+  ]
+ },
+ {
+  "nurse_id": "N085",
+  "name": "Rekha Kulkarni",
+  "skills": [
+   "physio_support"
+  ],
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.47527,
+  "lon": 73.80215,
+  "years_experience": 6,
+  "rating": 4.3,
+  "review_count": 34,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N086",
+  "name": "Komal Fernandes",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.49457,
+  "lon": 73.90449,
+  "years_experience": 0,
+  "rating": 4.2,
+  "review_count": 6,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N087",
+  "name": "Pooja Rao",
+  "skills": [
+   "baby_care",
+   "dementia_care",
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.04415,
+  "lon": 73.01055,
+  "years_experience": 5,
+  "rating": 4.0,
+  "review_count": 36,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N088",
+  "name": "Lata Kaur",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.0286,
+  "lon": 72.8855,
+  "years_experience": 3,
+  "rating": 4.2,
+  "review_count": 15,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N089",
+  "name": "Aarti Sharma",
+  "skills": [
+   "dementia_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.19099,
+  "lon": 72.83189,
+  "years_experience": 9,
+  "rating": 4.6,
+  "review_count": 40,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N090",
+  "name": "Rekha Verma",
+  "skills": [
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.55224,
+  "lon": 73.84494,
+  "years_experience": 1,
+  "rating": 4.0,
+  "review_count": 9,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N091",
+  "name": "Mohan Shah",
+  "skills": [
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.65166,
+  "lon": 77.21691,
+  "years_experience": 14,
+  "rating": 4.8,
+  "review_count": 61,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N092",
+  "name": "Kavita Shinde",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.57507,
+  "lon": 73.86861,
+  "years_experience": 8,
+  "rating": 4.4,
+  "review_count": 43,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N093",
+  "name": "Neha Jadhav",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.53955,
+  "lon": 73.93225,
+  "years_experience": 2,
+  "rating": 4.3,
+  "review_count": 8,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N094",
+  "name": "Swati Kaur",
+  "skills": [
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.56927,
+  "lon": 77.17771,
+  "years_experience": 12,
+  "rating": 4.1,
+  "review_count": 60,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N095",
+  "name": "Vaishali Ansari",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.74117,
+  "lon": 77.22307,
+  "years_experience": 18,
+  "rating": 4.2,
+  "review_count": 89,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N096",
+  "name": "Sneha Patil",
+  "skills": [
+   "baby_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English"
+  ],
+  "city": "Delhi",
+  "lat": 28.61935,
+  "lon": 77.24529,
+  "years_experience": 9,
+  "rating": 4.1,
+  "review_count": 49,
+  "available_slots": [
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day"
+  ]
+ },
+ {
+  "nurse_id": "N097",
+  "name": "Rekha Rao",
+  "skills": [
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.11076,
+  "lon": 73.00885,
+  "years_experience": 2,
+  "rating": 4.3,
+  "review_count": 18,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N098",
+  "name": "Vijay Jadhav",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Pune",
+  "lat": 18.51712,
+  "lon": 73.92664,
+  "years_experience": 7,
+  "rating": 3.6,
+  "review_count": 42,
+  "available_slots": [
+   "Mon-night",
+   "Thu-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N099",
+  "name": "Kavita Pereira",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.53721,
+  "lon": 77.32217,
+  "years_experience": 7,
+  "rating": 4.8,
+  "review_count": 48,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N100",
+  "name": "Radha Deshmukh",
+  "skills": [
+   "baby_care",
+   "dementia_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.6704,
+  "lon": 73.8117,
+  "years_experience": 7,
+  "rating": 4.9,
+  "review_count": 40,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N101",
+  "name": "Geeta Deshmukh",
+  "skills": [
+   "baby_care",
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.05978,
+  "lon": 72.90287,
+  "years_experience": 14,
+  "rating": 3.9,
+  "review_count": 80,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N102",
+  "name": "Usha Thakur",
+  "skills": [
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.60917,
+  "lon": 73.8453,
+  "years_experience": 14,
+  "rating": 4.5,
+  "review_count": 77,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N103",
+  "name": "Pooja Bhosale",
+  "skills": [
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.55402,
+  "lon": 77.18786,
+  "years_experience": 9,
+  "rating": 5.0,
+  "review_count": 43,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N104",
+  "name": "Komal Gupta",
+  "skills": [
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati"
+  ],
+  "city": "Mumbai",
+  "lat": 19.11611,
+  "lon": 72.94509,
+  "years_experience": 2,
+  "rating": 4.6,
+  "review_count": 14,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day"
+  ]
+ },
+ {
+  "nurse_id": "N105",
+  "name": "Sunita Mehta",
+  "skills": [
+   "baby_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.49912,
+  "lon": 73.71437,
+  "years_experience": 13,
+  "rating": 3.7,
+  "review_count": 66,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N106",
+  "name": "Rosy Pawar",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.61289,
+  "lon": 77.31832,
+  "years_experience": 2,
+  "rating": 4.0,
+  "review_count": 20,
+  "available_slots": [
+   "Tue-day",
+   "Tue-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N107",
+  "name": "Sanjay Singh",
+  "skills": [
+   "baby_care",
+   "dementia_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.08138,
+  "lon": 72.93746,
+  "years_experience": 2,
+  "rating": 4.8,
+  "review_count": 11,
+  "available_slots": [
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N108",
+  "name": "Anita Naik",
+  "skills": [
+   "baby_care",
+   "dementia_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.08905,
+  "lon": 72.87555,
+  "years_experience": 6,
+  "rating": 4.7,
+  "review_count": 53,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N109",
+  "name": "Sneha Patil",
+  "skills": [
+   "baby_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.53533,
+  "lon": 73.91722,
+  "years_experience": 4,
+  "rating": 4.7,
+  "review_count": 17,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N110",
+  "name": "Mary Mehta",
+  "skills": [
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.41237,
+  "lon": 73.97028,
+  "years_experience": 8,
+  "rating": 4.8,
+  "review_count": 55,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N111",
+  "name": "Ravi Ansari",
+  "skills": [
+   "baby_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.50169,
+  "lon": 73.97794,
+  "years_experience": 7,
+  "rating": 4.9,
+  "review_count": 40,
+  "available_slots": [
+   "Tue-night",
+   "Thu-night",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N112",
+  "name": "Harpreet Rao",
+  "skills": [
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.65678,
+  "lon": 73.8951,
+  "years_experience": 12,
+  "rating": 4.4,
+  "review_count": 57,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Wed-day",
+   "Wed-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N113",
+  "name": "Sanjay Verma",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.15027,
+  "lon": 72.89491,
+  "years_experience": 11,
+  "rating": 3.9,
+  "review_count": 46,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N114",
+  "name": "Farida Mishra",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.70614,
+  "lon": 77.22169,
+  "years_experience": 5,
+  "rating": 4.8,
+  "review_count": 28,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N115",
+  "name": "Radha Patil",
+  "skills": [
+   "baby_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.01784,
+  "lon": 72.82029,
+  "years_experience": 2,
+  "rating": 4.2,
+  "review_count": 11,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N116",
+  "name": "Manisha Verma",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.49643,
+  "lon": 73.84042,
+  "years_experience": 4,
+  "rating": 3.8,
+  "review_count": 28,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N117",
+  "name": "Mary Kulkarni",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.06161,
+  "lon": 72.95491,
+  "years_experience": 10,
+  "rating": 4.1,
+  "review_count": 55,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day"
+  ]
+ },
+ {
+  "nurse_id": "N118",
+  "name": "Geeta Joshi",
+  "skills": [
+   "dementia_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.61086,
+  "lon": 77.25139,
+  "years_experience": 11,
+  "rating": 3.9,
+  "review_count": 63,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Wed-day",
+   "Wed-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N119",
+  "name": "Vijay Patil",
+  "skills": [
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati"
+  ],
+  "city": "Mumbai",
+  "lat": 19.05183,
+  "lon": 72.82103,
+  "years_experience": 1,
+  "rating": 4.2,
+  "review_count": 12,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N120",
+  "name": "Sunita Pawar",
+  "skills": [
+   "baby_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.63379,
+  "lon": 77.25401,
+  "years_experience": 3,
+  "rating": 4.6,
+  "review_count": 16,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N121",
+  "name": "Manisha Sharma",
+  "skills": [
+   "baby_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.01535,
+  "lon": 72.96797,
+  "years_experience": 5,
+  "rating": 4.4,
+  "review_count": 36,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N122",
+  "name": "Neha Kaur",
+  "skills": [
+   "baby_care"
+  ],
+  "languages": [
+   "Gujarati",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.50482,
+  "lon": 73.91489,
+  "years_experience": 6,
+  "rating": 4.3,
+  "review_count": 27,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day"
+  ]
+ },
+ {
+  "nurse_id": "N123",
+  "name": "Priya Singh",
+  "skills": [
+   "dementia_care",
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.56096,
+  "lon": 73.79483,
+  "years_experience": 2,
+  "rating": 4.5,
+  "review_count": 11,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N124",
+  "name": "Neha Kaur",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "Gujarati",
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.67246,
+  "lon": 77.19969,
+  "years_experience": 6,
+  "rating": 4.6,
+  "review_count": 23,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N125",
+  "name": "Rekha Deshmukh",
+  "skills": [
+   "baby_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.01158,
+  "lon": 72.764,
+  "years_experience": 6,
+  "rating": 4.6,
+  "review_count": 43,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N126",
+  "name": "Pooja Gaikwad",
+  "skills": [
+   "baby_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.57411,
+  "lon": 77.16927,
+  "years_experience": 1,
+  "rating": 4.4,
+  "review_count": 10,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N127",
+  "name": "Mary Kulkarni",
+  "skills": [
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.18586,
+  "lon": 72.81651,
+  "years_experience": 10,
+  "rating": 4.3,
+  "review_count": 56,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N128",
+  "name": "Manisha Joshi",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.49632,
+  "lon": 73.81166,
+  "years_experience": 15,
+  "rating": 4.4,
+  "review_count": 66,
+  "available_slots": [
+   "Mon-night",
+   "Wed-night",
+   "Thu-night",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N129",
+  "name": "Meera Nair",
+  "skills": [
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.60499,
+  "lon": 73.8158,
+  "years_experience": 6,
+  "rating": 4.2,
+  "review_count": 34,
+  "available_slots": [
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N130",
+  "name": "Kavita Fernandes",
+  "skills": [
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.11444,
+  "lon": 72.97534,
+  "years_experience": 9,
+  "rating": 3.7,
+  "review_count": 61,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N131",
+  "name": "Vaishali Pereira",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.49122,
+  "lon": 77.13548,
+  "years_experience": 9,
+  "rating": 4.0,
+  "review_count": 53,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Fri-night",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N132",
+  "name": "Komal Shinde",
+  "skills": [
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.54952,
+  "lon": 73.88807,
+  "years_experience": 3,
+  "rating": 4.1,
+  "review_count": 19,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N133",
+  "name": "Sneha Shinde",
+  "skills": [
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Gujarati",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.56318,
+  "lon": 77.26054,
+  "years_experience": 1,
+  "rating": 4.0,
+  "review_count": 6,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N134",
+  "name": "Rekha Iyer",
+  "skills": [
+   "baby_care",
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "Gujarati"
+  ],
+  "city": "Mumbai",
+  "lat": 19.15571,
+  "lon": 72.83831,
+  "years_experience": 5,
+  "rating": 3.9,
+  "review_count": 41,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N135",
+  "name": "Shweta Kulkarni",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.51121,
+  "lon": 73.80725,
+  "years_experience": 8,
+  "rating": 4.2,
+  "review_count": 43,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N136",
+  "name": "Amit Gaikwad",
+  "skills": [
+   "baby_care"
+  ],
+  "languages": [
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.53571,
+  "lon": 73.83283,
+  "years_experience": 2,
+  "rating": 4.1,
+  "review_count": 17,
+  "available_slots": [
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Sat-day",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N137",
+  "name": "Jyoti Iyer",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.03882,
+  "lon": 72.82264,
+  "years_experience": 1,
+  "rating": 4.5,
+  "review_count": 8,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N138",
+  "name": "Rekha Mishra",
+  "skills": [
+   "baby_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.49896,
+  "lon": 73.77498,
+  "years_experience": 1,
+  "rating": 4.2,
+  "review_count": 12,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N139",
+  "name": "Ravi Mishra",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.4875,
+  "lon": 73.85917,
+  "years_experience": 12,
+  "rating": 4.5,
+  "review_count": 65,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N140",
+  "name": "Sunita Pawar",
+  "skills": [
+   "dementia_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.57259,
+  "lon": 73.82762,
+  "years_experience": 2,
+  "rating": 3.9,
+  "review_count": 17,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N141",
+  "name": "Mohan Deshmukh",
+  "skills": [
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.61906,
+  "lon": 73.80411,
+  "years_experience": 7,
+  "rating": 4.1,
+  "review_count": 40,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N142",
+  "name": "Deepa Pereira",
+  "skills": [
+   "baby_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 18.9494,
+  "lon": 72.83172,
+  "years_experience": 10,
+  "rating": 4.1,
+  "review_count": 51,
+  "available_slots": [
+   "Mon-day",
+   "Wed-day",
+   "Sat-day"
+  ]
+ },
+ {
+  "nurse_id": "N143",
+  "name": "Radha Singh",
+  "skills": [
+   "elderly_care",
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.73761,
+  "lon": 77.26537,
+  "years_experience": 3,
+  "rating": 4.4,
+  "review_count": 19,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N144",
+  "name": "Meera Ansari",
+  "skills": [
+   "baby_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.12273,
+  "lon": 72.93231,
+  "years_experience": 5,
+  "rating": 4.3,
+  "review_count": 33,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N145",
+  "name": "Jaspreet D'Souza",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Pune",
+  "lat": 18.55276,
+  "lon": 73.80168,
+  "years_experience": 3,
+  "rating": 4.4,
+  "review_count": 18,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N146",
+  "name": "Imran Singh",
+  "skills": [
+   "baby_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi",
+   "Urdu"
+  ],
+  "city": "Delhi",
+  "lat": 28.59859,
+  "lon": 77.11682,
+  "years_experience": 2,
+  "rating": 4.3,
+  "review_count": 14,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N147",
+  "name": "Savita Ansari",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.01317,
+  "lon": 72.91273,
+  "years_experience": 9,
+  "rating": 4.0,
+  "review_count": 54,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N148",
+  "name": "Ravi Mehta",
+  "skills": [
+   "baby_care",
+   "dementia_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.07358,
+  "lon": 72.74599,
+  "years_experience": 10,
+  "rating": 4.4,
+  "review_count": 56,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N149",
+  "name": "Arjun Mishra",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "Gujarati",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.10757,
+  "lon": 72.83862,
+  "years_experience": 4,
+  "rating": 4.7,
+  "review_count": 19,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N150",
+  "name": "Amit Sharma",
+  "skills": [
+   "elderly_care",
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.46381,
+  "lon": 73.84303,
+  "years_experience": 19,
+  "rating": 4.4,
+  "review_count": 101,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N151",
+  "name": "Neha Iyer",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.66726,
+  "lon": 77.26749,
+  "years_experience": 4,
+  "rating": 4.5,
+  "review_count": 24,
+  "available_slots": [
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N152",
+  "name": "Nisha Rao",
+  "skills": [
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.55315,
+  "lon": 73.7945,
+  "years_experience": 7,
+  "rating": 4.4,
+  "review_count": 36,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N153",
+  "name": "Asha Kaur",
+  "skills": [
+   "baby_care",
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.53448,
+  "lon": 77.11658,
+  "years_experience": 1,
+  "rating": 4.1,
+  "review_count": 8,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N154",
+  "name": "Jyoti Gupta",
+  "skills": [
+   "baby_care",
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.11011,
+  "lon": 72.83314,
+  "years_experience": 7,
+  "rating": 4.5,
+  "review_count": 33,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N155",
+  "name": "Shweta Rao",
+  "skills": [
+   "baby_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.1231,
+  "lon": 72.8995,
+  "years_experience": 8,
+  "rating": 4.5,
+  "review_count": 43,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N156",
+  "name": "Mary Fernandes",
+  "skills": [
+   "baby_care",
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.61092,
+  "lon": 77.28984,
+  "years_experience": 1,
+  "rating": 3.9,
+  "review_count": 5,
+  "available_slots": [
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N157",
+  "name": "Geeta Kaur",
+  "skills": [
+   "baby_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.57211,
+  "lon": 73.9282,
+  "years_experience": 11,
+  "rating": 4.7,
+  "review_count": 69,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N158",
+  "name": "Amit Yadav",
+  "skills": [
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.53314,
+  "lon": 77.11565,
+  "years_experience": 4,
+  "rating": 4.5,
+  "review_count": 21,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N159",
+  "name": "Farida Deshmukh",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.52129,
+  "lon": 73.88085,
+  "years_experience": 1,
+  "rating": 4.6,
+  "review_count": 8,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N160",
+  "name": "Aarti Jadhav",
+  "skills": [
+   "dementia_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.038,
+  "lon": 72.91139,
+  "years_experience": 24,
+  "rating": 3.9,
+  "review_count": 105,
+  "available_slots": [
+   "Mon-night",
+   "Wed-night",
+   "Thu-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N161",
+  "name": "Shweta Yadav",
+  "skills": [
+   "baby_care",
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "Hindi",
+   "Marathi",
+   "Urdu"
+  ],
+  "city": "Pune",
+  "lat": 18.50969,
+  "lon": 73.89252,
+  "years_experience": 2,
+  "rating": 4.5,
+  "review_count": 11,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N162",
+  "name": "Harpreet Kulkarni",
+  "skills": [
+   "dementia_care",
+   "physio_support"
+  ],
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.55834,
+  "lon": 73.87363,
+  "years_experience": 3,
+  "rating": 4.2,
+  "review_count": 23,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N163",
+  "name": "Mary Khan",
+  "skills": [
+   "baby_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.59698,
+  "lon": 77.17109,
+  "years_experience": 4,
+  "rating": 4.2,
+  "review_count": 28,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N164",
+  "name": "Mary Chauhan",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.12103,
+  "lon": 72.85133,
+  "years_experience": 7,
+  "rating": 3.8,
+  "review_count": 42,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N165",
+  "name": "Radha Mishra",
+  "skills": [
+   "baby_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Pune",
+  "lat": 18.49179,
+  "lon": 73.94962,
+  "years_experience": 2,
+  "rating": 4.1,
+  "review_count": 12,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N166",
+  "name": "Rekha Verma",
+  "skills": [
+   "baby_care",
+   "dementia_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.58229,
+  "lon": 77.19427,
+  "years_experience": 4,
+  "rating": 4.3,
+  "review_count": 31,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night"
+  ]
+ },
+ {
+  "nurse_id": "N167",
+  "name": "Shweta Gupta",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.11069,
+  "lon": 72.86942,
+  "years_experience": 5,
+  "rating": 4.7,
+  "review_count": 32,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N168",
+  "name": "Imran Kulkarni",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "Urdu"
+  ],
+  "city": "Delhi",
+  "lat": 28.58941,
+  "lon": 77.23269,
+  "years_experience": 7,
+  "rating": 4.4,
+  "review_count": 38,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day"
+  ]
+ },
+ {
+  "nurse_id": "N169",
+  "name": "Anita Singh",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi",
+   "Urdu"
+  ],
+  "city": "Delhi",
+  "lat": 28.63168,
+  "lon": 77.17968,
+  "years_experience": 4,
+  "rating": 3.9,
+  "review_count": 24,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day"
+  ]
+ },
+ {
+  "nurse_id": "N170",
+  "name": "Harpreet Shinde",
+  "skills": [
+   "baby_care",
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "Gujarati",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 18.98031,
+  "lon": 72.81483,
+  "years_experience": 0,
+  "rating": 4.5,
+  "review_count": 3,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N171",
+  "name": "Usha Iyer",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Pune",
+  "lat": 18.47507,
+  "lon": 73.79332,
+  "years_experience": 7,
+  "rating": 4.3,
+  "review_count": 37,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N172",
+  "name": "Swati Mehta",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Pune",
+  "lat": 18.57969,
+  "lon": 73.73653,
+  "years_experience": 7,
+  "rating": 4.1,
+  "review_count": 38,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N173",
+  "name": "Amit Sharma",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi",
+   "Urdu"
+  ],
+  "city": "Delhi",
+  "lat": 28.63167,
+  "lon": 77.22776,
+  "years_experience": 1,
+  "rating": 4.5,
+  "review_count": 9,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N174",
+  "name": "Komal Jadhav",
+  "skills": [
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.57492,
+  "lon": 77.1338,
+  "years_experience": 4,
+  "rating": 4.5,
+  "review_count": 26,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N175",
+  "name": "Harpreet Nair",
+  "skills": [
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.61421,
+  "lon": 77.22072,
+  "years_experience": 8,
+  "rating": 4.6,
+  "review_count": 37,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N176",
+  "name": "Geeta Mishra",
+  "skills": [
+   "baby_care",
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.55614,
+  "lon": 77.20004,
+  "years_experience": 7,
+  "rating": 4.7,
+  "review_count": 39,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N177",
+  "name": "Harpreet Rao",
+  "skills": [
+   "baby_care",
+   "physio_support"
+  ],
+  "languages": [
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Pune",
+  "lat": 18.53129,
+  "lon": 73.88162,
+  "years_experience": 4,
+  "rating": 4.8,
+  "review_count": 30,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day"
+  ]
+ },
+ {
+  "nurse_id": "N178",
+  "name": "Komal Jadhav",
+  "skills": [
+   "baby_care",
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.47448,
+  "lon": 73.7856,
+  "years_experience": 8,
+  "rating": 4.3,
+  "review_count": 38,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N179",
+  "name": "Rahul Joshi",
+  "skills": [
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.10883,
+  "lon": 72.82918,
+  "years_experience": 9,
+  "rating": 4.4,
+  "review_count": 54,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N180",
+  "name": "Usha Khan",
+  "skills": [
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.45723,
+  "lon": 73.82015,
+  "years_experience": 4,
+  "rating": 3.7,
+  "review_count": 29,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N181",
+  "name": "Mohan Shah",
+  "skills": [
+   "baby_care",
+   "dementia_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.03489,
+  "lon": 72.84412,
+  "years_experience": 8,
+  "rating": 4.0,
+  "review_count": 55,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Fri-day",
+   "Sat-day"
+  ]
+ },
+ {
+  "nurse_id": "N182",
+  "name": "Rekha Jadhav",
+  "skills": [
+   "baby_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 18.95001,
+  "lon": 72.83056,
+  "years_experience": 7,
+  "rating": 4.6,
+  "review_count": 42,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N183",
+  "name": "Geeta Yadav",
+  "skills": [
+   "elderly_care",
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.7411,
+  "lon": 77.29237,
+  "years_experience": 6,
+  "rating": 4.4,
+  "review_count": 30,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N184",
+  "name": "Shweta Ansari",
+  "skills": [
+   "dementia_care",
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Pune",
+  "lat": 18.63741,
+  "lon": 73.8166,
+  "years_experience": 8,
+  "rating": 4.1,
+  "review_count": 52,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N185",
+  "name": "Imran Shinde",
+  "skills": [
+   "dementia_care",
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.67276,
+  "lon": 77.10475,
+  "years_experience": 2,
+  "rating": 4.1,
+  "review_count": 16,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N186",
+  "name": "Jaspreet Kulkarni",
+  "skills": [
+   "baby_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.49719,
+  "lon": 73.90267,
+  "years_experience": 3,
+  "rating": 4.1,
+  "review_count": 23,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day"
+  ]
+ },
+ {
+  "nurse_id": "N187",
+  "name": "Asha Deshmukh",
+  "skills": [
+   "elderly_care",
+   "physio_support",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.57433,
+  "lon": 77.30965,
+  "years_experience": 5,
+  "rating": 3.6,
+  "review_count": 28,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N188",
+  "name": "Anita Iyer",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.04348,
+  "lon": 72.82084,
+  "years_experience": 3,
+  "rating": 4.0,
+  "review_count": 18,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N189",
+  "name": "Sunita Shah",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Urdu"
+  ],
+  "city": "Delhi",
+  "lat": 28.49158,
+  "lon": 77.27631,
+  "years_experience": 7,
+  "rating": 4.5,
+  "review_count": 40,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N190",
+  "name": "Radha Pereira",
+  "skills": [
+   "elderly_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.54074,
+  "lon": 73.83452,
+  "years_experience": 9,
+  "rating": 5.0,
+  "review_count": 53,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Thu-night",
+   "Fri-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N191",
+  "name": "Usha Singh",
+  "skills": [
+   "dementia_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.059,
+  "lon": 72.91436,
+  "years_experience": 2,
+  "rating": 4.4,
+  "review_count": 16,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N192",
+  "name": "Deepak Ansari",
+  "skills": [
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.12079,
+  "lon": 72.83258,
+  "years_experience": 11,
+  "rating": 4.1,
+  "review_count": 65,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night"
+  ]
+ },
+ {
+  "nurse_id": "N193",
+  "name": "Asha Patil",
+  "skills": [
+   "baby_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.63488,
+  "lon": 73.90757,
+  "years_experience": 5,
+  "rating": 4.5,
+  "review_count": 26,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N194",
+  "name": "Sanjay D'Souza",
+  "skills": [
+   "baby_care",
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.6107,
+  "lon": 77.27418,
+  "years_experience": 2,
+  "rating": 4.7,
+  "review_count": 19,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night"
+  ]
+ },
+ {
+  "nurse_id": "N195",
+  "name": "Deepak Pereira",
+  "skills": [
+   "baby_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.07955,
+  "lon": 72.83924,
+  "years_experience": 3,
+  "rating": 4.2,
+  "review_count": 19,
+  "available_slots": [
+   "Mon-day",
+   "Tue-day",
+   "Wed-day",
+   "Thu-day",
+   "Fri-day",
+   "Sat-day",
+   "Sun-day"
+  ]
+ },
+ {
+  "nurse_id": "N196",
+  "name": "Rohit Verma",
+  "skills": [
+   "elderly_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Delhi",
+  "lat": 28.70999,
+  "lon": 77.25397,
+  "years_experience": 3,
+  "rating": 4.7,
+  "review_count": 13,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N197",
+  "name": "Shweta Chauhan",
+  "skills": [
+   "baby_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Gujarati",
+   "Hindi",
+   "Punjabi"
+  ],
+  "city": "Mumbai",
+  "lat": 19.03375,
+  "lon": 72.96359,
+  "years_experience": 2,
+  "rating": 3.7,
+  "review_count": 11,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Fri-day",
+   "Fri-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N198",
+  "name": "Pooja Kaur",
+  "skills": [
+   "baby_care",
+   "elderly_care",
+   "post_surgery_care"
+  ],
+  "languages": [
+   "English",
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.72076,
+  "lon": 77.30642,
+  "years_experience": 8,
+  "rating": 3.4,
+  "review_count": 48,
+  "available_slots": [
+   "Mon-day",
+   "Mon-night",
+   "Tue-day",
+   "Tue-night",
+   "Wed-day",
+   "Wed-night",
+   "Thu-day",
+   "Thu-night",
+   "Fri-day",
+   "Fri-night",
+   "Sat-day",
+   "Sat-night",
+   "Sun-day",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N199",
+  "name": "Imran Nair",
+  "skills": [
+   "dementia_care",
+   "physio_support"
+  ],
+  "languages": [
+   "Hindi"
+  ],
+  "city": "Delhi",
+  "lat": 28.63258,
+  "lon": 77.23526,
+  "years_experience": 4,
+  "rating": 4.3,
+  "review_count": 23,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ },
+ {
+  "nurse_id": "N200",
+  "name": "Manisha Kaur",
+  "skills": [
+   "baby_care",
+   "physio_support"
+  ],
+  "languages": [
+   "English",
+   "Hindi",
+   "Marathi"
+  ],
+  "city": "Pune",
+  "lat": 18.5348,
+  "lon": 73.83914,
+  "years_experience": 11,
+  "rating": 4.4,
+  "review_count": 62,
+  "available_slots": [
+   "Mon-night",
+   "Tue-night",
+   "Wed-night",
+   "Thu-night",
+   "Fri-night",
+   "Sat-night",
+   "Sun-night"
+  ]
+ }
+]
