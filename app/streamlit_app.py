@@ -130,6 +130,22 @@ header[data-testid="stHeader"] { display: none; }
 .st-key-mapbox .stButton > button p { font-size: 1.1rem; font-weight: 600; }
 .st-key-mapwrap [data-testid="stDeckGlJsonChart"], .st-key-mapwrap_big [data-testid="stDeckGlJsonChart"] { border-radius: 12px; overflow: hidden; border: 1px solid #DCE6E7; }
 .st-key-breakbox button[role="tab"] p { font-size: 1.05rem; font-weight: 600; }
+/* ---- phones and tablets (up to 1100px wide): let the whole page scroll, stack everything ---- */
+@media (max-width: 1100px) {
+  html { font-size: 16px; }
+  [data-testid="stHorizontalBlock"] { flex-wrap: wrap !important; }
+  [data-testid="stColumn"] { min-width: 100% !important; flex: 1 1 100% !important; width: 100% !important; }
+  .stApp, [data-testid="stAppViewContainer"] { height: 100dvh; }
+  [data-testid="stMain"] { overflow-y: auto !important; height: 100% !important; }
+  [data-testid="stMain"] .block-container { height: auto !important; overflow: visible !important; padding: 0.8rem 0.9rem 4rem; }
+  .st-key-left, .st-key-mid, .st-key-right, .st-key-fullpage { height: auto !important; max-height: none !important; overflow: visible !important; padding-right: 0; }
+  .nm-title h1 { font-size: 1.7rem; }
+  .nm-title p { font-size: 0.95rem; }
+  .st-key-toptabs_box button { padding: 0 6px; min-height: 40px; }
+  .st-key-toptabs_box button p { font-size: 0.85rem; white-space: nowrap; }
+  .nm-kpis { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .nm-kpi .val { font-size: 1.25rem; }
+}
 </style>
 """
 
@@ -415,7 +431,7 @@ def show_results(request: CareRequest, weights: Weights, radius_km: float | None
             if h2.button("Expand map", key="expand_map", width="stretch"):
                 map_dialog(request, matches, radius_km)
             with st.container(key="mapwrap"):
-                st.pydeck_chart(build_map(request, matches, radius_km), height=380)
+                st.pydeck_chart(build_map(request, matches, radius_km, height_px=340), height=340)
             st.markdown("**Red dot:** patient. **Numbers:** the ranks on the left.")
         with st.container(key="breakbox"):
             tab_why, tab_funnel = st.tabs(["Why this nurse", "How the list was narrowed"])
@@ -543,7 +559,7 @@ def main() -> None:
 
     head_l, head_r = st.columns([2.2, 1.5], vertical_alignment="center")
     head_l.html('<div class="nm-title"><h1>Nurse Match Engine</h1>'
-                "<p>Find the best nurse for your care request — with complete transparency.</p></div>")
+                "<p>Find the best nurse for your care request with complete transparency.</p></div>")
     with head_r:
         with st.container(key="toptabs_box"):
             st.segmented_control("Pages", PAGES, key="toptabs", label_visibility="collapsed",
