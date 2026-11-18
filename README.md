@@ -29,9 +29,9 @@ python -m matcher.learning               # learned weights from simulated feedba
 
 ## The demo
 
-`streamlit run app/streamlit_app.py` opens an app with a sidebar menu (also available as tabs at the top right). It is sized to fit the browser window: the page itself never scrolls, and each panel scrolls on its own if it needs to.
+`streamlit run app/streamlit_app.py` opens an app with three pages, switched from the tabs at the top right. It is sized to fit the browser window: the page itself never scrolls, and each panel scrolls on its own if it needs to.
 
-- **Find a Nurse.** The left panel holds the care request (sample request, care needed, language, patient's city, days, shift, previous nurse) and the scoring controls. Press "Find Top Matches" to apply them. Four summary cards sit across the top. Below them are the top 5 nurses as cards with availability, distance, experience, skills, languages, the match score and a plain-language reason. "View Details" picks the nurse shown in "Exact Score Breakdown". On the right are the map (use "Expand map" for a large pop-up), the chart of how many nurses each hard rule removed, and the score breakdown.
+- **Find a Nurse.** The left panel holds the care request (sample request, care needed, language, patient's city, days, shift, previous nurse) and the scoring controls. The weights, learned-weights option and travel radius are under "Scoring options". Press "Find Top Matches" to apply them. Four summary cards sit across the top. Below them are the top 5 nurses as cards with distance, experience, languages, skills and the match score. "View Details" opens a pop-up with the plain-language reason and exact score breakdown, and shows the same nurse in the right-hand panel. There you get the map (use "Expand map" for a large pop-up), and a "Why this nurse" tab with the plain-language reason and exact score breakdown, next to a tab showing how many nurses each hard rule removed. Text size scales with the window, so it stays readable on large or zoomed-out screens.
 - **Fairness Analytics.** The fairness numbers and a chart of first picks with and without workload balancing.
 - **Learned Weights.** How the weights were learned from simulated feedback and whether it helps.
 

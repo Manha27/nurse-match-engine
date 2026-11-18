@@ -22,56 +22,42 @@ from matcher.dataset import load_dataset
 from matcher.fairness import comparison_table, evaluate
 from matcher.learning import run_experiment, weights_table
 
-st.set_page_config(page_title="Nurse Match Engine", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="Nurse Match Engine", layout="wide", initial_sidebar_state="collapsed")
 
 TEAL = "#0F5F5A"
 FACTOR_NAMES = {"distance": "Distance", "rating": "Rating", "experience": "Experience", "continuity": "Continuity"}
-PAGES = ["Find a Nurse", "Fairness Analytics", "Learned Weights", "About"]
-TOP_TABS = PAGES[:3]
-NAV_ICONS = {
-    "Find a Nurse": '<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',
-    "Fairness Analytics": '<path d="M5 20V10M12 20V4M19 20v-7"/>',
-    "Learned Weights": '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>',
-    "About": '<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/>',
-}
+PAGES = ["Find a Nurse", "Fairness Analytics", "Learned Weights"]
 
 CSS = """
 <style>
 /* ---- page frame: fit the window, scroll inside panels instead ---- */
+html { font-size: clamp(17px, 0.95vw, 30px); }
 html, body, .stApp { background: #F3F7F7; }
 header[data-testid="stHeader"] { display: none; }
-[data-testid="stMain"] .block-container { padding: 14px 26px 8px 26px; max-width: 100%; }
+[data-testid="stMain"] .block-container { padding: 0.9rem 1.6rem 0.5rem 1.6rem; max-width: 100%; }
 [data-testid="stMain"] { overflow: hidden; }
 [data-testid="stAppViewContainer"] { height: 100vh; overflow: hidden; }
 .stApp { height: 100vh; overflow: hidden; }
 [data-testid="stMain"] .block-container { height: 100vh; overflow: hidden; }
 [data-testid="stVerticalBlock"] { gap: 0.6rem; }
 
-/* ---- sidebar ---- */
-[data-testid="stSidebar"] { background: #0B4A47; min-width: 235px !important; max-width: 235px !important; }
-[data-testid="stSidebar"] > div:first-child { padding-top: 70px; }
-[data-testid="stSidebarCollapseButton"], [data-testid="stSidebarHeader"] { display: none; }
-[data-testid="stSidebar"] .stButton > button { width: 100%; justify-content: flex-start; gap: 12px;
-  background: transparent; border: 0; color: #CFE3E1; font-size: 0.95rem; padding: 12px 14px; border-radius: 10px; white-space: nowrap; }
-[data-testid="stSidebar"] .stButton > button:hover { background: rgba(255,255,255,0.08); color: #fff; }
-[data-testid="stSidebar"] .stButton > button[kind="primary"] { background: rgba(255,255,255,0.14); color: #fff; font-weight: 600; }
-[data-testid="stSidebar"] .stButton > button p { font-size: 0.95rem; white-space: nowrap; }
-[data-testid="stSidebar"] .stButton > button > div { justify-content: flex-start; }
-[data-testid="stSidebar"] [data-testid="stVerticalBlock"] { gap: 0.35rem; }
+/* ---- no sidebar: navigation lives in the top-right tabs ---- */
+[data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"], [data-testid="stSidebarCollapseButton"] { display: none !important; }
 
 /* ---- header ---- */
-.nm-title h1 { margin: 0; font-size: 1.9rem; font-weight: 600; color: #10252B; letter-spacing: -0.01em; line-height: 1.15; }
+.nm-title h1 { margin: 0; font-size: 2rem; font-weight: 600; color: #10252B; letter-spacing: -0.01em; line-height: 1.15; }
 .nm-title p { margin: 2px 0 0; color: #26404A; font-size: 1rem; }
 .st-key-toptabs_box [data-baseweb="button-group"] { background: #E8F0F0; border-radius: 999px; padding: 4px; gap: 2px; }
 .st-key-toptabs_box button { border: 0 !important; border-radius: 999px !important; background: transparent !important;
-  color: #4B6168 !important; font-weight: 500; min-height: 38px; padding: 0 22px; }
+  color: #4B6168 !important; font-weight: 500; min-height: 44px; padding: 0 22px; }
+.st-key-toptabs_box button p { font-size: 1.05rem; }
 .st-key-toptabs_box button[aria-checked="true"], .st-key-toptabs_box button[aria-pressed="true"], .st-key-toptabs_box button[kind="segmented_controlActive"] {
   background: #0F5F5A !important; color: #fff !important; }
 
 /* ---- panels (internal scroll) ---- */
-.st-key-left { height: calc(100vh - 100px) !important; max-height: calc(100vh - 100px) !important; overflow-y: auto !important; padding-right: 4px; }
-.st-key-mid, .st-key-right { height: calc(100vh - 215px) !important; max-height: calc(100vh - 215px) !important; overflow-y: auto !important; padding-right: 4px; }
-.st-key-fullpage { height: calc(100vh - 100px) !important; max-height: calc(100vh - 100px) !important; overflow-y: auto !important; padding-right: 6px; }
+.st-key-left { height: calc(100vh - 6.6rem) !important; max-height: calc(100vh - 6.6rem) !important; overflow-y: auto !important; padding-right: 4px; }
+.st-key-mid, .st-key-right { height: calc(100vh - 13.2rem) !important; max-height: calc(100vh - 13.2rem) !important; overflow-y: auto !important; padding-right: 4px; }
+.st-key-fullpage { height: calc(100vh - 6.6rem) !important; max-height: calc(100vh - 6.6rem) !important; overflow-y: auto !important; padding-right: 6px; }
 .st-key-left > div, .st-key-right > div { max-width: 100%; }
 .st-key-left::-webkit-scrollbar, .st-key-mid::-webkit-scrollbar, .st-key-right::-webkit-scrollbar,
 .st-key-fullpage::-webkit-scrollbar { width: 8px; }
@@ -80,34 +66,34 @@ header[data-testid="stHeader"] { display: none; }
 .nm-panel-title { font-size: 1.15rem; font-weight: 700; color: #10252B; margin: 2px 0 6px; }
 .nm-sub { font-weight: 700; font-size: 1.05rem; margin: 8px 0 2px; color: #10252B; }
 [data-testid="stForm"] { border: 0; padding: 0; }
-[data-testid="stWidgetLabel"] p { font-size: 0.86rem; color: #26404A; }
+[data-testid="stWidgetLabel"] p { font-size: 0.95rem; color: #26404A; }
 .st-key-left [data-baseweb="select"] > div { min-height: 38px; }
 
 /* ---- KPI cards ---- */
-.nm-kpis { display: grid; grid-template-columns: 1fr 1fr 1fr 1.3fr; gap: 14px; margin-bottom: 4px; }
+.nm-kpis { display: grid; grid-template-columns: 1.15fr 0.9fr 1fr 1.35fr; gap: 14px; margin-bottom: 4px; }
 .nm-kpi { display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid #DCE6E7;
-  border-radius: 14px; padding: 12px 16px; min-width: 0; }
-.nm-kpi .ic { flex: 0 0 46px; height: 46px; border-radius: 50%; background: #E3F0EF; display: flex; align-items: center; justify-content: center; }
+  border-radius: 14px; padding: 10px 12px; min-width: 0; gap: 10px; }
+.nm-kpi .ic { flex: 0 0 2.6rem; height: 2.6rem; border-radius: 50%; background: #E3F0EF; display: flex; align-items: center; justify-content: center; }
 .nm-kpi .ic img { width: 22px; height: 22px; }
-.nm-kpi .lab { font-size: 0.86rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #26404A; }
-.nm-kpi .val { font-size: 1.35rem; font-weight: 500; color: #10252B; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nm-kpi .lab { font-size: 0.95rem; white-space: normal; line-height: 1.2; color: #26404A; }
+.nm-kpi .val { font-size: 1.4rem; font-weight: 500; color: #10252B; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ---- nurse cards ---- */
 .st-key-mid [data-testid="stVerticalBlockBorderWrapper"] { background: #fff; border: 1px solid #DCE6E7; border-radius: 14px; }
-.nm-rank { width: 26px; height: 26px; border-radius: 50%; background: #E3F0EF; color: #0F5F5A; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; font-size: 0.85rem; margin-top: 3px; }
+.nm-rank { width: 2rem; height: 2rem; border-radius: 50%; background: #E3F0EF; color: #0F5F5A; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; font-size: 1rem; margin-top: 3px; }
 .nm-rank.top { background: #0F5F5A; color: #fff; }
 .nm-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
-.nm-name { font-size: 1.12rem; font-weight: 650; color: #10252B; }
-.nm-id { color: #5B7078; font-size: 0.85rem; }
+.nm-name { font-size: 1.3rem; font-weight: 650; color: #10252B; }
+.nm-id { color: #5B7078; font-size: 0.95rem; }
 .nm-pill { background: #D7EEE9; color: #0F5F5A; border-radius: 999px; padding: 2px 12px; font-size: 0.8rem; font-weight: 600; }
-.nm-line { font-size: 0.86rem; color: #1D343B; margin-bottom: 5px; }
-.nm-chip { display: inline-block; background: #EEF3F4; color: #28434B; border-radius: 6px; padding: 2px 8px; margin: 0 6px 4px 0; font-size: 0.82rem; }
+.nm-line { font-size: 1rem; color: #1D343B; margin-bottom: 8px; }
+.nm-chip { display: inline-block; background: #EEF3F4; color: #28434B; border-radius: 6px; padding: 3px 10px; margin: 0 6px 4px 0; font-size: 0.95rem; }
 .nm-chip.warn { background: #FEF3C7; color: #92400E; }
-.nm-expl { font-size: 0.82rem; color: #5B7078; margin-top: 4px; }
+.nm-expl { font-size: 1rem; color: #1D343B; line-height: 1.5; margin: 6px 0 10px; }
 .nm-score { text-align: center; }
-.nm-score .lab { font-size: 0.9rem; font-weight: 600; color: #10252B; }
-.nm-score .num { font-size: 1.9rem; font-weight: 700; color: #0F5F5A; line-height: 1.15; }
+.nm-score .lab { font-size: 0.95rem; font-weight: 600; color: #10252B; }
+.nm-score .num { font-size: 2.3rem; font-weight: 700; color: #0F5F5A; line-height: 1.15; }
 .st-key-mid .stButton > button { background: #0F5F5A; color: #fff; border: 0; border-radius: 8px; width: 100%; font-weight: 600; min-height: 36px; }
 .st-key-mid .stButton > button:hover { background: #0B4A47; color: #fff; }
 .st-key-mid .stButton > button[kind="primary"] { box-shadow: 0 0 0 3px rgba(15,95,90,0.25); }
@@ -115,14 +101,12 @@ header[data-testid="stHeader"] { display: none; }
 /* ---- right column ---- */
 .st-key-mapbox button { min-height: 32px; padding: 0 8px; white-space: nowrap; }
 .st-key-toptabs_box { background: #E8F0F0; border-radius: 999px; }
-.st-key-mapbox, .st-key-funnelbox, .st-key-breakbox { background: #fff; border: 1px solid #DCE6E7; border-radius: 14px; padding: 12px 14px; }
-.nm-legend { position: absolute; z-index: 5; top: 8px; right: 8px; background: rgba(255,255,255,0.95); border-radius: 8px; padding: 6px 10px; font-size: 0.78rem; line-height: 1.5; }
-.nm-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+.st-key-mapbox, .st-key-breakbox { background: #fff; border: 1px solid #DCE6E7; border-radius: 14px; padding: 12px 14px; }
 .nm-fn { margin-bottom: 8px; }
-.nm-fn-top { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 3px; }
+.nm-fn-top { display: flex; justify-content: space-between; font-size: 1rem; margin-bottom: 3px; }
 .nm-fn-track { height: 7px; background: #E3EBEC; border-radius: 99px; overflow: hidden; }
 .nm-fn-fill { height: 100%; background: #0F5F5A; border-radius: 99px; }
-.nm-bt { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 0.8rem; }
+.nm-bt { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 1.05rem; }
 .nm-bt th:first-child, .nm-bt td:first-child { width: 31%; }
 .nm-bt th { text-align: right; font-weight: 500; color: #3B5159; padding: 5px 4px; border-bottom: 1px solid #E3EBEC; }
 .nm-bt td { text-align: right; padding: 5px 4px; border-bottom: 1px solid #EEF3F4; }
@@ -131,6 +115,21 @@ header[data-testid="stHeader"] { display: none; }
 .nm-empty { background: #FFF7ED; border: 1px solid #FDBA74; border-radius: 12px; padding: 16px 18px; color: #7C2D12; }
 .nm-about { background: #fff; border: 1px solid #DCE6E7; border-radius: 14px; padding: 18px 24px; max-width: 820px; line-height: 1.6; }
 [data-testid="stMetric"] { background: #fff; border: 1px solid #DCE6E7; border-radius: 12px; padding: 10px 14px; }
+
+/* ---- cards: score + View Details centred together ---- */
+.nm-score { text-align: center; }
+.st-key-mid [data-testid="stColumn"]:last-child [data-testid="stVerticalBlock"] { align-items: center; gap: 0.35rem; }
+.st-key-mid [data-testid="stColumn"]:last-child .stButton { width: 100%; display: flex; justify-content: center; }
+.st-key-mid .stButton > button { min-height: 42px; }
+.st-key-mid .stButton > button p { font-size: 1rem; }
+
+/* ---- map: only the "Expand map" button, no built-in full-screen icon ---- */
+.st-key-mapbox [data-testid="stElementToolbar"], .st-key-mapwrap [data-testid="stElementToolbar"], .st-key-mapwrap_big [data-testid="stElementToolbar"] { display: none !important; }
+.st-key-mapbox .stButton > button { min-height: 42px; padding: 0 14px; background: #fff; border: 1px solid #0F5F5A; color: #0F5F5A; border-radius: 8px; }
+.st-key-mapbox .stButton > button:hover { background: #E3F0EF; }
+.st-key-mapbox .stButton > button p { font-size: 1.1rem; font-weight: 600; }
+.st-key-mapwrap [data-testid="stDeckGlJsonChart"], .st-key-mapwrap_big [data-testid="stDeckGlJsonChart"] { border-radius: 12px; overflow: hidden; border: 1px solid #DCE6E7; }
+.st-key-breakbox button[role="tab"] p { font-size: 1.05rem; font-weight: 600; }
 </style>
 """
 
@@ -204,15 +203,15 @@ def request_form(base: CareRequest, known_ids: set[str]) -> tuple[CareRequest, W
         previous = st.text_input("Nurse who looked after this patient before (optional)",
                                  value=", ".join(base.previous_nurse_ids), placeholder="e.g. N042")
 
-        st.markdown('<div class="nm-sub">Scoring</div>', unsafe_allow_html=True)
-        use_learned = st.checkbox("Use weights learned from simulated feedback")
-        d = st.slider("Distance", 0.0, 1.0, defaults.distance, 0.05)
-        r = st.slider("Rating", 0.0, 1.0, defaults.rating, 0.05)
-        e = st.slider("Experience", 0.0, 1.0, defaults.experience, 0.05)
-        c = st.slider("Continuity (same nurse as before)", 0.0, 1.0, defaults.continuity, 0.05)
-        limit = st.checkbox("Only nurses within a travel radius",
-                            help="Off: distance only affects the score. On: nurses beyond the radius are left out.")
-        radius = st.slider("Radius (km)", 5, 100, int(SUGGESTED_RADIUS_KM))
+        with st.expander("Scoring options"):
+            use_learned = st.checkbox("Use weights learned from simulated feedback")
+            d = st.slider("Distance", 0.0, 1.0, defaults.distance, 0.05)
+            r = st.slider("Rating", 0.0, 1.0, defaults.rating, 0.05)
+            e = st.slider("Experience", 0.0, 1.0, defaults.experience, 0.05)
+            c = st.slider("Continuity (same nurse as before)", 0.0, 1.0, defaults.continuity, 0.05)
+            limit = st.checkbox("Only nurses within a travel radius",
+                                help="Off: distance only affects the score. On: nurses beyond the radius are left out.")
+            radius = st.slider("Radius (km)", 5, 100, int(SUGGESTED_RADIUS_KM))
         st.form_submit_button("Find Top Matches", type="primary", width="stretch")
 
     previous_ids = tuple(p.strip().upper() for p in previous.split(",") if p.strip())
@@ -297,7 +296,7 @@ def map_view(points: pd.DataFrame, width_px: int, height_px: int) -> pdk.ViewSta
 
 
 def build_map(request: CareRequest, matches: list[Match], radius_km: float | None,
-              width_px: int = 380, height_px: int = 250) -> pdk.Deck:
+              width_px: int = 560, height_px: int = 380) -> pdk.Deck:
     patient = pd.DataFrame([{
         "lat": request.lat, "lon": request.lon, "name": request.patient_name or "Patient",
         "detail": "Patient's home", "icon": pin_icon("", "#DC2626"),
@@ -310,10 +309,10 @@ def build_map(request: CareRequest, matches: list[Match], radius_km: float | Non
 
     layers = [
         pdk.Layer("LineLayer", nurses, get_source_position="[from_lon, from_lat]",
-                  get_target_position="[lon, lat]", get_color=[15, 95, 90, 150], get_width=2),
-        pdk.Layer("IconLayer", nurses, get_icon="icon", get_position="[lon, lat]", get_size=30,
+                  get_target_position="[lon, lat]", get_color=[15, 95, 90, 130], get_width=1.5),
+        pdk.Layer("IconLayer", nurses, get_icon="icon", get_position="[lon, lat]", get_size=36,
                   size_scale=1, pickable=True),
-        pdk.Layer("IconLayer", patient, get_icon="icon", get_position="[lon, lat]", get_size=26,
+        pdk.Layer("IconLayer", patient, get_icon="icon", get_position="[lon, lat]", get_size=30,
                   size_scale=1, pickable=True),
     ]
     if radius_km is not None:
@@ -334,33 +333,44 @@ def build_map(request: CareRequest, matches: list[Match], radius_km: float | Non
 
 @st.dialog("Where they are", width="large")
 def map_dialog(request: CareRequest, matches: list[Match], radius_km: float | None) -> None:
-    st.pydeck_chart(build_map(request, matches, radius_km, width_px=1150, height_px=520), height=520)
-    st.caption("Red dot: patient. Numbers are the ranks on the left.")
+    with st.container(key="mapwrap_big"):
+        st.pydeck_chart(build_map(request, matches, radius_km, width_px=1150, height_px=560), height=560)
+    st.markdown("**Red dot:** patient. **Numbers:** the ranks on the left.")
 
 
-def nurse_card(m: Match, request: CareRequest, selected: bool) -> None:
+def select_nurse(nurse_id: str) -> None:
+    """Button callback: remember the nurse and ask for the details pop-up on this run."""
+    st.session_state["selected_nurse"] = nurse_id
+    st.session_state["open_details"] = nurse_id
+
+
+def nurse_card(m: Match, request: CareRequest) -> None:
     n = m.nurse
+    chips = "".join(chip(label(x).capitalize()) for x in sorted(n.skills))
+    pill = '<span class="nm-pill">Previously served</span>' if n.nurse_id in request.previous_nurse_ids else ""
+    warn = chip(f"Based in {n.city}", "warn") if n.city != request.city else ""
     with st.container(border=True):
-        c_rank, c_main, c_score = st.columns([0.45, 5, 1.7], vertical_alignment="center")
+        c_rank, c_main, c_score = st.columns([0.4, 4.0, 1.5], vertical_alignment="center", gap="small")
         c_rank.html(f'<div class="nm-rank{" top" if m.rank == 1 else ""}">{m.rank}</div>')
-        prev = n.nurse_id in request.previous_nurse_ids
-        pill = '<span class="nm-pill">Previously served</span>' if prev else ""
-        skills = "".join(chip(label(s).capitalize()) for s in sorted(n.skills))
-        langs = chip("Speaks " + ", ".join(sorted(n.languages)))
-        away = chip(f"Based in {n.city}", "warn") if n.city != request.city else ""
         c_main.html(
             f'<div class="nm-head"><span class="nm-name">{escape(n.name)}</span>'
             f'<span class="nm-id">{escape(n.nurse_id)}</span>{pill}</div>'
-            f'<div class="nm-line">Free for all requested slots &nbsp;•&nbsp; {m.distance_km:.1f} km away'
-            f' &nbsp;•&nbsp; {n.years_experience} yrs exp</div>'
-            f'<div>{skills}</div><div>{langs}{away}</div>'
-            f'<div class="nm-expl">{escape(m.explanation)}</div>'
+            f'<div class="nm-line">{m.distance_km:.1f} km away &bull; {n.years_experience} yrs exp &bull; '
+            f'Speaks {escape(", ".join(sorted(n.languages)))}</div>'
+            f'<div>{chips}{warn}</div>'
         )
         with c_score:
             st.html(f'<div class="nm-score"><div class="lab">Match Score</div><div class="num">{m.score:.2f}</div></div>')
-            if st.button("View Details", key=f"view_{m.nurse.nurse_id}", type="primary" if selected else "secondary"):
-                st.session_state["selected_nurse"] = n.nurse_id
-                st.rerun()
+            st.button("View Details", key=f"view_{n.nurse_id}", on_click=select_nurse, args=(n.nurse_id,),
+                      width="stretch")
+
+
+@st.dialog("Why this nurse", width="large")
+def details_dialog(m: Match, weights: Weights) -> None:
+    st.html(f'<div class="nm-panel-title" style="font-size:1.4rem">#{m.rank} {escape(m.nurse.name)} '
+            f'<span class="nm-id">{escape(m.nurse.nurse_id)}</span></div>')
+    st.html(f'<div class="nm-expl">{escape(m.explanation)}</div>')
+    st.html(breakdown_html(m, weights))
 
 
 def show_results(request: CareRequest, weights: Weights, radius_km: float | None, kpi_box, mid, right) -> None:
@@ -387,32 +397,38 @@ def show_results(request: CareRequest, weights: Weights, radius_km: float | None
         mid.html('<div class="nm-empty"><b>No nurse meets every requirement.</b> The bars on the right show '
                  "which rule removed the most nurses. Try other days, a different shift or a wider radius.</div>")
         with right:
-            st.html(f'<div class="nm-panel-title" style="font-size:1rem">How the list was narrowed down</div>{funnel_html(result.funnel)}')
+            st.html(f'<div class="nm-panel-title">How the list was narrowed down</div>{funnel_html(result.funnel)}')
         return
 
-    ids = [m.nurse.nurse_id for m in matches]
-    if st.session_state.get("selected_nurse") not in ids:
-        st.session_state["selected_nurse"] = ids[0]
-    selected = next(m for m in matches if m.nurse.nurse_id == st.session_state["selected_nurse"])
+    by_id = {m.nurse.nurse_id: m for m in matches}
+    selected = by_id.get(st.session_state.get("selected_nurse")) or matches[0]
 
     with mid:
-        st.html(f'<div class="nm-panel-title" style="font-size:1.4rem">Top {len(matches)} Nurses</div>')
+        st.html(f'<div class="nm-panel-title" style="font-size:1.5rem">Top {len(matches)} Nurses</div>')
         for m in matches:
-            nurse_card(m, request, m.nurse.nurse_id == selected.nurse.nurse_id)
+            nurse_card(m, request)
 
     with right:
         with st.container(key="mapbox"):
-            h1, h2 = st.columns([1.6, 1.5], vertical_alignment="center")
-            h1.html('<div class="nm-panel-title" style="margin:0">Where they are</div>')
+            h1, h2 = st.columns([1.5, 1.3], vertical_alignment="center")
+            h1.html('<div class="nm-panel-title" style="margin:0;font-size:1.3rem">Where they are</div>')
             if h2.button("Expand map", key="expand_map", width="stretch"):
                 map_dialog(request, matches, radius_km)
-            st.pydeck_chart(build_map(request, matches, radius_km), height=250)
-            st.caption("Red dot: patient. Numbers are the ranks on the left.")
-        with st.container(key="funnelbox"):
-            st.html(f'<div class="nm-panel-title" style="font-size:1rem">How the list was narrowed down</div>{funnel_html(result.funnel)}')
+            with st.container(key="mapwrap"):
+                st.pydeck_chart(build_map(request, matches, radius_km), height=380)
+            st.markdown("**Red dot:** patient. **Numbers:** the ranks on the left.")
         with st.container(key="breakbox"):
-            with st.expander(f"Exact Score Breakdown ({selected.nurse.name})", expanded=True):
-                st.html(breakdown_html(selected, weights))
+            tab_why, tab_funnel = st.tabs(["Why this nurse", "How the list was narrowed"])
+            with tab_why:
+                st.html(f'<div class="nm-expl"><b>{escape(selected.nurse.name)}.</b> {escape(selected.explanation)}</div>'
+                        + breakdown_html(selected, weights))
+            with tab_funnel:
+                st.html(funnel_html(result.funnel))
+
+    # View Details was clicked on this run: show the pop-up as well, so the click is never silent.
+    opened = st.session_state.pop("open_details", None)
+    if opened in by_id:
+        details_dialog(by_id[opened], weights)
 
 
 def find_page() -> None:
@@ -420,7 +436,7 @@ def find_page() -> None:
     by_id = {r.request_id: r for r in requests}
     known_ids = {n.nurse_id for n in nurses}
 
-    left, rest = st.columns([1.1, 3.9], gap="medium")
+    left, rest = st.columns([1.15, 4.0], gap="medium")
     with left:
         with st.container(key="left", border=False):
             with st.container(border=True):
@@ -429,7 +445,7 @@ def find_page() -> None:
                 request, weights, radius_km = request_form(by_id[choice], known_ids)
     with rest:
         kpi_box = st.container()
-        mid_col, right_col = st.columns([2.2, 1.3], gap="medium")
+        mid_col, right_col = st.columns([2.1, 1.5], gap="medium")
         with mid_col:
             mid_box = st.container(key="mid")
         with right_col:
@@ -509,22 +525,8 @@ def learning_page() -> None:
     )
 
 
-def about_page() -> None:
-    st.html(
-        '<div class="nm-about"><b>How it works</b><br>'
-        "Hard rules decide who is eligible: the nurse must offer the required care, speak the family's language and "
-        "be free for every requested shift. Scores then decide the order, from distance, rating, experience and "
-        "whether the nurse has looked after the patient before. Every rank comes with a reason built from the same "
-        "numbers that produced the score. All data in this demo is synthetic.</div>"
-    )
-
-
-def set_page(name: str) -> None:
-    st.session_state["page"] = name
-    st.session_state["toptabs"] = name if name in TOP_TABS else None
-
-
 def sync_from_top() -> None:
+    """The top tabs are the only navigation. Clicking the active tab again must not deselect it."""
     value = st.session_state.get("toptabs")
     if value:
         st.session_state["page"] = value
@@ -533,32 +535,25 @@ def sync_from_top() -> None:
 
 
 def main() -> None:
-    nurses, requests = get_data()
+    get_data()
     st.html(CSS)
     st.session_state.setdefault("page", PAGES[0])
     page = st.session_state["page"]
-    st.session_state.setdefault("toptabs", page if page in TOP_TABS else None)
-
-    with st.sidebar:
-        for name in PAGES:
-            st.button(name, key=f"nav_{name}", type="primary" if name == page else "secondary",
-                      icon=":material/" + {"Find a Nurse": "search", "Fairness Analytics": "bar_chart",
-                                           "Learned Weights": "settings", "About": "info"}[name] + ":",
-                      on_click=set_page, args=(name,), width="stretch")
+    st.session_state.setdefault("toptabs", page)
 
     head_l, head_r = st.columns([2.2, 1.5], vertical_alignment="center")
     head_l.html('<div class="nm-title"><h1>Nurse Match Engine</h1>'
                 "<p>Find the best nurse for your care request — with complete transparency.</p></div>")
     with head_r:
         with st.container(key="toptabs_box"):
-            st.segmented_control("Pages", TOP_TABS, key="toptabs", label_visibility="collapsed",
+            st.segmented_control("Pages", PAGES, key="toptabs", label_visibility="collapsed",
                                  on_change=sync_from_top, width="stretch")
 
     if page == "Find a Nurse":
         find_page()
     else:
         with st.container(key="fullpage"):
-            {"Fairness Analytics": fairness_page, "Learned Weights": learning_page, "About": about_page}[page]()
+            {"Fairness Analytics": fairness_page, "Learned Weights": learning_page}[page]()
 
 
 main()
