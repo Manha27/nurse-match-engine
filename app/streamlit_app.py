@@ -16,7 +16,7 @@ import pydeck as pdk
 import streamlit as st
 
 from matcher import CareRequest, Match, MatchResult, Weights, eligible_nurses, match
-from matcher.config import DAYS, LANGUAGES, SHIFTS, SKILLS, SUGGESTED_RADIUS_KM, label
+from matcher.config import CITIES, DAYS, LANGUAGES, SHIFTS, SKILLS, SUGGESTED_RADIUS_KM, label
 from matcher.dataset import load_dataset
 from matcher.fairness import comparison_table, evaluate
 from matcher.learning import run_experiment, weights_table
@@ -38,7 +38,9 @@ FACTOR_NAMES = {
 
 CSS = """
 <style>
-.block-container { padding-top: 1rem; padding-bottom: 3rem; max-width: 1600px; }
+html { font-size: 112.5%; }
+.block-container { padding-top: 1rem; padding-bottom: 3rem; max-width: 1800px; }
+.st-key-mapbox [data-testid="stElementToolbar"] { display: none; }
 [data-testid="stMetricValue"] { font-size: 1.65rem; }
 [data-testid="stMetric"] { padding: 10px 14px; }
 .nm-hero { background: linear-gradient(120deg, #0F766E, #134E4A); color: #fff; border-radius: 16px;
@@ -51,10 +53,11 @@ CSS = """
 .nm-summary { background: #fff; border: 1px solid #DCE5E6; border-radius: 14px; padding: 12px 18px 8px; margin-bottom: 10px; }
 .nm-summary .who { font-size: 1.15rem; font-weight: 650; margin-bottom: 8px; }
 .nm-chip { display: inline-block; background: #E8F1F0; color: #0F4F4A; border-radius: 999px;
-  padding: 3px 11px; margin: 0 6px 6px 0; font-size: 0.82rem; font-weight: 500; }
+  padding: 3px 11px; margin: 0 6px 6px 0; font-size: 0.86rem; font-weight: 500; }
+.nm-chip.ok { background: #DCFCE7; color: #166534; }
 .nm-chip.warn { background: #FEF3C7; color: #92400E; }
 .nm-chip.quiet { background: #EEF2F3; color: #3F5560; }
-.nm-legend { font-size: 0.82rem; color: #3F5560; margin: 4px 0 10px; }
+.nm-legend { font-size: 0.88rem; color: #3F5560; margin: 4px 0 10px; }
 .nm-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin: 0 5px 0 12px; vertical-align: -1px; }
 .nm-card { display: flex; gap: 14px; background: #fff; border: 1px solid #DCE5E6; border-radius: 14px;
   padding: 15px 18px; margin-bottom: 12px; box-shadow: 0 1px 2px rgba(15,50,55,0.05); }
@@ -69,11 +72,12 @@ CSS = """
 .nm-score { margin-left: auto; font-weight: 700; font-size: 1.05rem; color: #0F766E; }
 .nm-track { display: flex; height: 9px; background: #E7EDEE; border-radius: 99px; overflow: hidden; margin-bottom: 10px; }
 .nm-track span { display: block; height: 100%; }
-.nm-expl { font-size: 0.94rem; line-height: 1.45; margin-bottom: 9px; }
+.nm-expl { font-size: 1rem; line-height: 1.45; margin-bottom: 9px; }
 .nm-fn { margin-bottom: 11px; }
 .nm-fn-top { display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 4px; }
 .nm-fn-track { height: 8px; background: #E7EDEE; border-radius: 99px; overflow: hidden; }
 .nm-fn-fill { height: 100%; background: #0F766E; border-radius: 99px; }
+.nm-avail { font-size: 0.88rem; color: #3F5560; margin: 2px 0 8px; }
 .nm-empty { background: #FFF7ED; border: 1px solid #FDBA74; border-radius: 12px; padding: 16px 18px; color: #7C2D12; }
 </style>
 """
@@ -117,6 +121,16 @@ def describe_days(days: list[str]) -> str:
     return ", ".join(days)
 
 
+def describe_availability(slots: frozenset[str]) -> str:
+    """e.g. 'days Mon-Fri · nights every day' from a nurse's weekly slots."""
+    parts = []
+    for shift in SHIFTS:
+        days = [d for d in DAYS if f"{d}-{shift}" in slots]
+        if days:
+            parts.append(f"{shift}s: {describe_days(days)}")
+    return " · ".join(parts) or "no weekly slots"
+
+
 def chip(text: str, kind: str = "") -> str:
     return f'<span class="nm-chip {kind}">{escape(text)}</span>'
 
@@ -136,6 +150,8 @@ def request_editor(base: CareRequest, known_ids: set[str]) -> CareRequest:
                             index=LANGUAGES.index(base.language), key=f"lang_{k}")
     days = st.pills("Days", DAYS, selection_mode="multi", default=base_days, key=f"days_{k}")
     shift = st.segmented_control("Shift", SHIFTS, default=base_shift, key=f"shift_{k}") or base_shift
+    city = st.selectbox("Patient's city", list(CITIES), index=list(CITIES).index(base.city), key=f"city_{k}",
+                        help="Changing the city moves the patient to that city's centre (simulated location).")
     previous = st.text_input("Nurse who looked after this patient before (optional)",
                              value=", ".join(base.previous_nurse_ids), key=f"prev_{k}",
                              placeholder="e.g. N042")
@@ -154,9 +170,9 @@ def request_editor(base: CareRequest, known_ids: set[str]) -> CareRequest:
         patient_name=base.patient_name,
         required_skill=skill,
         language=language,
-        city=base.city,
-        lat=base.lat,
-        lon=base.lon,
+        city=city,
+        lat=base.lat if city == base.city else CITIES[city][0],
+        lon=base.lon if city == base.city else CITIES[city][1],
         slots=frozenset(f"{d}-{shift}" for d in days),
         previous_nurse_ids=previous_ids,
     )
@@ -216,7 +232,7 @@ def card_html(m: Match, request: CareRequest) -> str:
         f'title="{FACTOR_NAMES[k]} {m.contributions[k]:.2f}"></span>'
         for k in FACTOR_COLORS
     )
-    chips = [chip(f"{m.distance_km:.1f} km away"), chip(f"Rated {n.rating:.1f} ({n.review_count})")
+    chips = [chip("✓ Free for every requested slot", "ok"), chip(f"{m.distance_km:.1f} km away"), chip(f"Rated {n.rating:.1f} ({n.review_count})")
              if n.review_count else chip("No reviews yet", "quiet"),
              chip(f"{n.years_experience} yrs experience")]
     if n.city != request.city:
@@ -231,7 +247,9 @@ def card_html(m: Match, request: CareRequest) -> str:
         f'<span class="nm-id">{escape(n.nurse_id)}</span><span class="nm-score">{m.score:.2f}</span></div>'
         f'<div class="nm-track">{segments}</div>'
         f'<div class="nm-expl">{escape(m.explanation)}</div>'
-        f'<div>{"".join(chips)}</div><div>{skills}{langs}</div>'
+        f'<div>{"".join(chips)}</div>'
+        f'<div class="nm-avail">Weekly availability, {escape(describe_availability(n.available_slots))}</div>'
+        f'<div>{skills}{langs}</div>'
         f"</div></div>"
     )
 
@@ -281,7 +299,8 @@ def map_view(points: pd.DataFrame, width_px: int = 360, height_px: int = 380) ->
     return pdk.ViewState(latitude=centre_lat, longitude=float((lon.max() + lon.min()) / 2), zoom=zoom)
 
 
-def build_map(request: CareRequest, matches: list[Match], radius_km: float | None) -> pdk.Deck:
+def build_map(request: CareRequest, matches: list[Match], radius_km: float | None,
+              width_px: int = 460, height_px: int = 460) -> pdk.Deck:
     patient = pd.DataFrame([{
         "lat": request.lat, "lon": request.lon,
         "name": request.patient_name or "Patient", "detail": "Patient's home",
@@ -291,6 +310,14 @@ def build_map(request: CareRequest, matches: list[Match], radius_km: float | Non
         "detail": f"#{m.rank} · {m.distance_km:.1f} km · score {m.score:.2f}",
         "from_lat": request.lat, "from_lon": request.lon,
     } for m in matches])
+
+    # Nurses living almost on the same spot would hide each other. Nudge them apart on the map only.
+    seen: dict[tuple[float, float], int] = {}
+    for i, row in nurses.iterrows():
+        key = (round(row["lat"], 3), round(row["lon"], 3))
+        seen[key] = seen.get(key, 0) + 1
+        if seen[key] > 1:
+            nurses.loc[i, "lon"] += 0.0012 * (seen[key] - 1)
 
     layers = [
         pdk.Layer("LineLayer", nurses, get_source_position="[from_lon, from_lat]",
@@ -317,9 +344,21 @@ def build_map(request: CareRequest, matches: list[Match], radius_km: float | Non
             "lat": [request.lat - dlat, request.lat + dlat],
         })
         points = pd.concat([points, ring_edges])
-    view = map_view(points)
+    view = map_view(points, width_px, height_px)
     return pdk.Deck(layers=layers, initial_view_state=view, map_style="light",
                     tooltip={"html": "<b>{name}</b><br/>{detail}"})
+
+
+MAP_NOTE = ("Red dot: patient. Teal numbers: the top 5, by rank. Grey lines are straight-line distance, "
+            "not driving routes. Locations are simulated, and nurses at almost the same spot are nudged apart.")
+
+
+@st.dialog("Where they are", width="large")
+def map_dialog(request: CareRequest, matches: list[Match], radius_km: float | None) -> None:
+    st.pydeck_chart(build_map(request, matches, radius_km, width_px=1150, height_px=600), height=600)
+    st.caption(MAP_NOTE)
+    if st.button("Close map", type="primary"):
+        st.rerun()
 
 
 def previous_nurse_kpi(
@@ -366,14 +405,19 @@ def show_results(request: CareRequest, weights: Weights, radius_km: float | None
             st.dataframe(
                 breakdown_table(result.matches), hide_index=True, width="stretch",
                 column_config={
-                    "Score": st.column_config.ProgressColumn("Score", min_value=0.0, max_value=1.0, format="%.2f"),
-                    **{FACTOR_NAMES[k]: st.column_config.NumberColumn(format="%.2f") for k in FACTOR_COLORS},
+                    "Score": st.column_config.ProgressColumn("Score", min_value=0.0, max_value=1.0, format="%.3f"),
+                    **{FACTOR_NAMES[k]: st.column_config.NumberColumn(format="%.3f") for k in FACTOR_COLORS},
                 },
             )
+            st.caption("Each column is that factor's weight times its 0 to 1 value. The score is their sum. "
+                       "Cards show it to 2 decimals, so a card can differ by 0.01 from the rounded parts.")
     with side:
         st.markdown("##### Where they are")
-        st.pydeck_chart(build_map(request, result.matches, radius_km), height=380)
-        st.caption("Red is the patient. Numbers are the ranks on the left.")
+        with st.container(key="mapbox"):
+            st.pydeck_chart(build_map(request, result.matches, radius_km), height=460)
+            if st.button("Expand map", icon=":material/open_in_full:", width="stretch"):
+                map_dialog(request, result.matches, radius_km)
+        st.caption(MAP_NOTE)
         st.markdown("##### How the list was narrowed down")
         st.html(funnel_html(result.funnel))
 
@@ -420,6 +464,28 @@ def fairness_tab() -> None:
         "Gini is 0 when work is spread perfectly evenly. Picking a random eligible nurse for each "
         f"request scores {plain.gini_top1_random:.2f} on this data, so that is the number to compare with."
     )
+    df = plain.per_nurse
+    qualify = df[df["eligible_requests"] > 0]
+    stuck = qualify[qualify["top5"] == 0]
+    st.caption(
+        f"Of the {len(df)} nurses, {len(df) - len(qualify)} qualify for none of the 100 requests, so no ranking "
+        f"could pick them. {len(stuck)} more qualify at least once but never reach a top 5; those are the ones "
+        "worth looking at. First-pick counts measure how recommendations are spread, not who is actually "
+        "assigned work."
+    )
+    with st.expander("Exposure: how often each nurse reaches a top 5 when they qualify"):
+        exp = qualify[qualify["eligible_requests"] >= 5].assign(
+            exposure=lambda d: d["top5"] / d["eligible_requests"]
+        ).sort_values("exposure").head(15)
+        st.dataframe(
+            exp[["nurse_id", "name", "eligible_requests", "top5", "exposure"]].rename(columns={
+                "nurse_id": "Nurse", "name": "Name", "eligible_requests": "Requests qualified for",
+                "top5": "Times in top 5", "exposure": "Exposure rate"}),
+            hide_index=True, width="stretch",
+            column_config={"Exposure rate": st.column_config.NumberColumn(format="percent")},
+        )
+        st.caption("Exposure rate = times in a top 5 divided by requests the nurse qualifies for. "
+                   "Shown for the 15 lowest, among nurses who qualify for at least 5 requests.")
     left, right = st.columns([1.1, 1], gap="large")
     with left:
         st.dataframe(comparison_table(plain, balanced, balance_weight), hide_index=True, width="stretch")

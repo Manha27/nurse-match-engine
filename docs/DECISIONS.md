@@ -92,7 +92,7 @@ Choices worth knowing:
 
 ## 17. The demo is built for a laptop screen
 
-The Streamlit app uses a wide layout: controls on the left, then the top 5 as cards with a stacked bar showing what each factor contributed, a map next to them, and the funnel of how many nurses each rule removed. A card's bar is built from the same contributions that add up to the score, and the exact numbers are in an expander. The map is pydeck; I fit its view to the points myself because the default fit clipped the markers. I checked the layout in headless Chrome at laptop and phone widths.
+The Streamlit app uses a wide layout: controls on the left, then the top 5 as cards with a stacked bar showing what each factor contributed, a map next to them, and the funnel of how many nurses each rule removed. A card's bar is built from the same contributions that add up to the score, and the exact numbers are in an expander. The map is pydeck; I fit its view to the points myself because the default fit clipped the markers. I checked the layout in headless Chrome at laptop and phone widths. The map's Expand button opens a larger map in a dialog with its own close button, because Streamlit's built-in fullscreen left no visible way out. Each card shows the nurse's weekly availability, the patient's city can be changed, and the breakdown table shows three decimals because the cards round the score to two.
 
 ## Known limits
 

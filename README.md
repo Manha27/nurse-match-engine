@@ -31,7 +31,7 @@ python -m matcher.learning               # learned weights from simulated feedba
 
 `streamlit run app/streamlit_app.py` opens a three-tab app, laid out for a laptop screen (on a phone it stacks into one column).
 
-- **Find a nurse.** Pick a sample request on the left and change anything: care type, language, days, shift, the nurse who looked after the patient before. The right side shows the top 5 as cards, each with a bar showing what makes up its score, the explanation, and the nurse's details. Next to them is a map of the patient and the top 5, and a chart of how many nurses each hard rule removed. Under "Scoring" you can change the weights, use the learned ones, or switch on a travel radius.
+- **Find a nurse.** Pick a sample request on the left and change anything: care type, language, days, shift, the nurse who looked after the patient before. The right side shows the top 5 as cards, each with a bar showing what makes up its score, the explanation, and the nurse's details. Next to them is a map of the patient and the top 5 (with an Expand button for a larger view), and a chart of how many nurses each hard rule removed. Under "Scoring" you can change the weights, use the learned ones, or switch on a travel radius.
 - **Fairness check.** The fairness numbers and a chart of first picks with and without workload balancing.
 - **Learned weights.** How the weights were learned from simulated feedback and whether it helps.
 
@@ -181,6 +181,8 @@ No API keys or secrets are needed anywhere. `.env.example` lists the two optiona
 
 - Availability is a weekly repeating pattern of slots (a day plus a day or night shift). There are no dates, leave days or one-off visits.
 - A request needs one skill and one language, and the nurse must cover all of its slots.
+- The data is synthetic and built to test the matching logic. A score is a ranking aid for a coordinator, not a judgement of medical suitability or safety, and ratings are not a measure of clinical skill.
+- First-pick counts in the fairness check show how recommendations are spread, not who is actually assigned work.
 - Distance is straight-line, not road distance. Beyond 25 km every nurse gets 0 for distance, so a nurse 40 km away and one 130 km away look the same on that factor.
 - Nurses have no cap on how many patients they can take. Capacity would be a hard rule in a real system.
 - A nurse with no reviews has their rating treated as a typical 4.2.
