@@ -4,7 +4,8 @@ Each case builds a handful of nurses, and the expected outcome was worked out on
 paper first. Where a number matters, the arithmetic is written in the test.
 
 Default weights: distance 0.30, rating 0.25, experience 0.15, continuity 0.30.
-Distance factor = 1 - km/25. Rating is shrunk towards 4.2 with a prior worth 10
+Distance factor = 1 - km/25, never below 0. Distance is only scored unless a
+service radius is passed in. Rating is shrunk towards 4.2 with a prior worth 10
 reviews, then mapped from 3.0-5.0 onto 0-1. Experience = min(years, 10)/10.
 """
 
@@ -56,16 +57,51 @@ def test_day_only_nurse_cannot_take_a_night_request():
     assert ids(result) == ["N2"]
 
 
-def test_nurse_beyond_the_distance_limit_is_excluded():
+def test_distance_alone_never_excludes_a_nurse():
+    # Distance is a scored factor. Without a service radius, a far nurse is still eligible.
     near, far = make_nurse("N1", km=24), make_nurse("N2", km=26)
-    assert ids(match(make_request(), [near, far])) == ["N1"]
-    # The limit is a setting, not a law of nature.
+    assert ids(match(make_request(), [near, far])) == ["N1", "N2"]
+
+
+def test_service_radius_removes_nurses_beyond_it():
+    near, far = make_nurse("N1", km=24), make_nurse("N2", km=26)
+    assert ids(match(make_request(), [near, far], max_distance_km=25)) == ["N1"]
     assert ids(match(make_request(), [near, far], max_distance_km=40)) == ["N1", "N2"]
 
 
-def test_nurse_in_another_city_is_excluded():
-    mumbai_nurse = make_nurse("N1", city="Mumbai", lat=19.076, lon=72.8777)
-    assert match(make_request(), [mumbai_nurse]).matches == []
+def test_nurse_in_another_city_ranks_last_by_default_and_is_dropped_by_a_radius():
+    local = make_nurse("N1", km=3)
+    mumbai = make_nurse("N2", city="Mumbai", lat=19.076, lon=72.8777)
+    result = match(make_request(), [mumbai, local])
+    assert ids(result) == ["N1", "N2"]
+    assert result.matches[1].factors["distance"] == 0.0
+    assert ids(match(make_request(), [mumbai, local], max_distance_km=25)) == ["N1"]
+
+
+def test_a_far_nurse_is_flagged_in_the_explanation():
+    result = match(make_request(), [make_nurse("N1", km=60)])
+    assert "60.0 km away" in result.matches[0].explanation
+
+
+def test_funnel_has_a_distance_step_only_when_a_radius_is_set():
+    nurses = [make_nurse("N1", km=3), make_nurse("N2", km=40)]
+    without = match(make_request(), nurses).funnel
+    with_radius = match(make_request(), nurses, max_distance_km=25).funnel
+    assert [step for step, _ in without][-1] == "Free for every requested slot"
+    assert with_radius[-1] == ("Within 25 km", 1)
+
+
+@pytest.mark.parametrize("bad_radius", [0, -5])
+def test_a_non_positive_radius_is_rejected(bad_radius):
+    with pytest.raises(ValueError, match="greater than zero"):
+        match(make_request(), [make_nurse("N1")], max_distance_km=bad_radius)
+
+
+def test_weights_must_be_non_negative_and_not_all_zero():
+    with pytest.raises(ValueError, match="cannot be negative"):
+        Weights(distance=-0.1)
+    with pytest.raises(ValueError, match="above zero"):
+        Weights(distance=0, rating=0, experience=0, continuity=0)
 
 
 def test_a_nurse_failing_several_rules_reports_all_of_them():
@@ -164,6 +200,11 @@ def test_fewer_than_five_eligible_returns_what_exists_and_says_so():
     assert len(result.matches) == 3
     assert result.eligible_count == 3
     assert any("Only 3" in n for n in result.notes)
+
+
+def test_a_single_eligible_nurse_gets_a_grammatical_note():
+    result = match(make_request(), [make_nurse("N1")])
+    assert result.notes == ["Only 1 nurse meets every requirement."]
 
 
 def test_no_eligible_nurse_gives_an_empty_list_and_a_funnel_that_shows_where_they_went():

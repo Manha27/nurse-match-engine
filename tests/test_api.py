@@ -66,6 +66,14 @@ def test_bad_input_is_rejected_with_422(client, change):
     assert client.post("/match", json=payload).status_code == 422
 
 
+def test_service_radius_is_optional_and_applied_when_given(client):
+    everyone = client.get("/requests/R001/matches?top_k=20").json()
+    nearby = client.get("/requests/R001/matches?top_k=20&max_distance_km=5").json()
+    assert nearby["eligible_count"] <= everyone["eligible_count"]
+    assert all(m["distance_km"] <= 5 for m in nearby["matches"])
+    assert client.get("/requests/R001/matches?max_distance_km=0").status_code == 422
+
+
 def test_top_k_limits_are_enforced(client):
     assert client.get("/requests/R001/matches?top_k=0").status_code == 422
     assert client.get("/requests/R001/matches?top_k=50").status_code == 422

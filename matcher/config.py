@@ -23,8 +23,13 @@ SHIFTS = ("day", "night")
 # A slot is one shift on one weekday, written "Mon-day" or "Sat-night".
 ALL_SLOTS = tuple(f"{d}-{s}" for d in DAYS for s in SHIFTS)
 
-# Nurses further than this from the patient are not considered at all.
-MAX_DISTANCE_KM = 25.0
+# The distance score falls in a straight line from 1.0 at the patient's door to 0.0 at
+# this distance, and stays at 0.0 beyond it.
+DISTANCE_SCALE_KM = 25.0
+
+# Optional service radius: nurses further away are left out entirely. It is off by
+# default (distance is only scored). The demo's switch for it starts from this value.
+SUGGESTED_RADIUS_KM = 25.0
 
 # Rating handling: a rating is shrunk towards PRIOR_RATING until the nurse has
 # collected enough reviews. PRIOR_WEIGHT is "how many reviews the prior is worth".

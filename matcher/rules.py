@@ -17,9 +17,12 @@ class RuleFailure(NamedTuple):
 
 
 def check_hard_rules(
-    nurse: Nurse, request: CareRequest, distance_km: float, max_distance_km: float
+    nurse: Nurse, request: CareRequest, distance_km: float, max_distance_km: float | None
 ) -> list[RuleFailure]:
-    """Return every rule the nurse fails. An empty list means eligible."""
+    """Return every rule the nurse fails. An empty list means eligible.
+
+    The distance rule only applies when a service radius is given.
+    """
     failures = []
 
     if request.required_skill not in nurse.skills:
@@ -33,7 +36,7 @@ def check_hard_rules(
         slots = ", ".join(sorted(missing, key=slot_sort_key))
         failures.append(RuleFailure("availability", f"is not free for {slots}"))
 
-    if distance_km > max_distance_km:
+    if max_distance_km is not None and distance_km > max_distance_km:
         failures.append(
             RuleFailure("distance", f"lives {distance_km:.0f} km away (limit {max_distance_km:.0f} km)")
         )

@@ -20,7 +20,6 @@ from typing import Sequence
 import numpy as np
 import pandas as pd
 
-from .config import MAX_DISTANCE_KM
 from .dataset import load_dataset
 from .engine import eligible_nurses, match
 from .models import CareRequest, Nurse
@@ -76,7 +75,7 @@ def evaluate(
     requests: Sequence[CareRequest],
     base_weights: Weights = DEFAULT_WEIGHTS,
     balance_weight: float = 0.0,
-    max_distance_km: float = MAX_DISTANCE_KM,
+    max_distance_km: float | None = None,
 ) -> FairnessReport:
     """balance_weight = 0 ranks each request independently; above 0 turns on workload balancing."""
     weights = replace(base_weights, workload=balance_weight)
@@ -109,7 +108,7 @@ def evaluate(
             load[first.nurse.nurse_id] = load.get(first.nurse.nurse_id, 0) + 1
 
         # Quality is always judged on the normal factors, with no workload term.
-        factors = score_factors(first.nurse, request, first.distance_km, max_distance_km)
+        factors = score_factors(first.nurse, request, first.distance_km)
         chosen_scores.append(sum(weighted_contributions(factors, base_weights).values()))
         chosen_distances.append(first.distance_km)
 

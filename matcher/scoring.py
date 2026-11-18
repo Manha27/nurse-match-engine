@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from .config import (
+    DISTANCE_SCALE_KM,
     EXPERIENCE_CAP_YEARS,
     PRIOR_RATING,
     PRIOR_WEIGHT,
@@ -24,6 +25,13 @@ class Weights:
     # Off by default. The fairness evaluation turns it on to spread work around.
     workload: float = 0.0
 
+    def __post_init__(self) -> None:
+        negative = [name for name, value in self.as_dict().items() if value < 0]
+        if negative:
+            raise ValueError(f"Weights cannot be negative: {', '.join(negative)}")
+        if self.total <= 0:
+            raise ValueError("At least one weight must be above zero.")
+
     def as_dict(self) -> dict[str, float]:
         return {
             "distance": self.distance,
@@ -41,9 +49,9 @@ class Weights:
 DEFAULT_WEIGHTS = Weights()
 
 
-def distance_factor(distance_km: float, max_distance_km: float) -> float:
-    """1.0 at the patient's door, falling in a straight line to 0.0 at the limit."""
-    return max(0.0, 1.0 - distance_km / max_distance_km)
+def distance_factor(distance_km: float, scale_km: float = DISTANCE_SCALE_KM) -> float:
+    """1.0 at the patient's door, falling in a straight line to 0.0 at scale_km and beyond."""
+    return max(0.0, 1.0 - distance_km / scale_km)
 
 
 def shrunk_rating(rating: float, review_count: int) -> float:
@@ -73,11 +81,10 @@ def score_factors(
     nurse: Nurse,
     request: CareRequest,
     distance_km: float,
-    max_distance_km: float,
     current_load: int = 0,
 ) -> dict[str, float]:
     return {
-        "distance": distance_factor(distance_km, max_distance_km),
+        "distance": distance_factor(distance_km),
         "rating": rating_factor(nurse.rating, nurse.review_count),
         "experience": experience_factor(nurse.years_experience),
         "continuity": continuity_factor(nurse, request),

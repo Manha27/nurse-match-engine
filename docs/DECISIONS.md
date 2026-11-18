@@ -4,13 +4,15 @@ Each entry says what I chose, what else I considered, and why. Numbers quoted he
 
 ## 1. Hard rules and soft scores are separate
 
-Skill, language, availability and the travel limit are yes/no filters. Distance, rating, experience and continuity are scored.
+Skill, language and availability are yes/no filters. Distance, rating, experience and continuity are scored. A travel radius is available as an optional fourth filter.
 
 The alternative was one big score with a heavy penalty for missing a skill. I did not do that because a penalty can always be outweighed, and a family that needs Marathi should never be sent a nurse who does not speak it, however good her rating is. Separating the two also makes the explanation honest: eligibility is a fact, ranking is a judgement.
 
-## 2. The 25 km limit is a hard rule, and it is my addition
+## 2. Distance is scored, not a hard rule (the radius is optional)
 
-The brief lists skill, availability and language as hard rules and distance as scored. I kept distance scored, but also added a cap, because without one a nurse in Mumbai can appear in a Pune family's list when nobody closer qualifies. That is not a usable recommendation. The cap is one constant (`MAX_DISTANCE_KM`) and the demo has a slider for it. I flagged it as an assumption in the README.
+The brief lists skill, availability and language as hard rules and distance as scored, and an earlier version of mine added a 25 km cap as a hard rule. A review pointed out that this quietly goes beyond the brief and can leave a family with no recommendation at all. I changed it: distance is only scored by default, and `max_distance_km` is an optional radius that adds a fourth rule when someone sets it.
+
+The cost of that choice is visible in the data. With no radius, 29 of the 497 top-5 slots (5.8%) go to a nurse in a different city than the patient, because nobody closer qualified (R004's #4 is a Mumbai nurse 131.6 km away). The explanation says so and the demo marks those cards. With a 25 km radius, 12 requests have fewer than 5 eligible nurses and two (R030, R092) have none. Which of those outcomes is better is an operations decision, so both are offered and the default follows the brief.
 
 ## 3. Straight-line distance
 
@@ -18,7 +20,7 @@ Haversine on latitude and longitude. Road distance would be better but needs a r
 
 ## 4. Linear distance decay
 
-Factor is `1 - km/25`. I looked at exponential decay but could not justify its steepness from any data, whereas a straight line is easy to say out loud: 5 km is 0.8, 12.5 km is 0.5.
+Factor is `1 - km/25`, and 0 beyond 25 km, so a nurse 40 km away and one 130 km away look the same on that factor. I looked at exponential decay but could not justify its steepness from any data, whereas a straight line is easy to say out loud: 5 km is 0.8, 12.5 km is 0.5.
 
 ## 5. Ratings are shrunk towards a typical value
 
@@ -32,9 +34,9 @@ A 20-year nurse is not twice as suitable as a 10-year nurse for most home care. 
 
 For dementia and elderly care, a familiar face matters. The weight is high enough to beat a somewhat better nurse (test: a previous nurse at 5 km with a 4.0 rating beats a 1 km, 4.9-rated nurse, 0.6975 to 0.66675) but not high enough to override quality entirely: a previous nurse who is far away and poorly rated loses to a great nurse next door. If the previous nurse fails a hard rule, they are left out and the result carries a note saying why, so the coordinator knows to call the family.
 
-## 8. A weighted sum, not a trained model
+## 8. A weighted sum, not a black-box model
 
-There is no real feedback data, and the brief says not to use any real records. A model trained on invented labels would just learn my own assumptions with extra steps, and it could not be explained. A weighted sum can be read, tuned in the demo and defended. Learning weights from real feedback is the first item under "next".
+There is no real feedback data, and the brief says not to use any real records. A ranking model trained on invented labels would just learn my own assumptions, and it could not be explained to a coordinator. A weighted sum can be read, tuned in the demo and defended. Decision 16 covers the one place where I do learn something, which is the weights themselves.
 
 ## 9. Explanations are templates, not a language model
 
@@ -50,11 +52,11 @@ What I count: how often each nurse is ranked first and in the top 5, over all 10
 - **Concentration.** Share of first picks held by the busiest nurse and by the busiest 10. Busiest nurse: 8%. Busiest 10: 43%.
 - **Gini of first picks.** 0.83, but the number needs context. With 100 requests and 200 nurses, even a perfectly even spread leaves half the nurses with zero picks, so a Gini of 0 is impossible. I compare against a baseline: picking a random eligible nurse for each request gives 0.76. So score ranking is a little more concentrated than random (0.83), which is expected when better nurses really do rank higher.
 
-"Nurses never in a top 5" is reported but is not a pass/fail measure. Of the 84 such nurses, 48 do not qualify for any of the 100 requests, so no ranking could have picked them. The remaining 36 qualified at least once and never ranked high enough, and that group is the one to look at.
+"Nurses never in a top 5" is reported but is not a pass/fail measure. Of the 81 such nurses, 29 do not qualify for any of the 100 requests, so no ranking could have picked them. The remaining 52 qualified at least once and never ranked high enough, and that group is the one to look at.
 
 ## 11. Workload balancing is available but off by default
 
-The fix for concentration is a small penalty for nurses already picked first (`workload` weight, 0.10 in the evaluation). In the simulation it takes the busiest nurse from 8 first picks to 5, the busiest 10's share from 43% to 34%, and the Gini from 0.83 to 0.78, while the average score of the first pick moves from 0.559 to 0.556.
+The fix for concentration is a small penalty for nurses already picked first (`workload` weight, 0.10 in the evaluation). In the simulation it takes the busiest nurse from 8 first picks to 5, the busiest 10's share from 43% to 35%, and the Gini from 0.83 to 0.78, while the average score of the first pick moves from 0.555 to 0.552 and its average distance from 9.6 to 10.2 km.
 
 It is off by default because it is a policy decision about trading match quality for spread, and it needs a real notion of load (current patients, not just this simulation's count). The simulation is also pessimistic: it assumes every first pick is accepted and nobody ever finishes a case. So treat the improvement as an indication, not a forecast.
 
@@ -64,21 +66,39 @@ A slot is a day plus a shift, such as `Mon-day` or `Sat-night`. A nurse is avail
 
 ## 13. Tie-breaking
 
-Equal scores go to the nearer nurse, then the lower id. Results are the same on every run, which matters for tests and for a coordinator seeing a stable list.
+Scores are compared at full precision (no rounding), equal scores go to the nearer nurse, then the lower id. Results are the same on every run, which matters for tests and for a coordinator seeing a stable list.
 
 ## 14. Generated data
 
-The generator is seeded, so everything is repeatable. Language mix depends on the city, dementia nurses usually also do elderly care, ratings drift up slightly with experience, and request patterns are the common ones (weekdays, all week, three days, weekends). About 2% of requests end up with no eligible nurse. I tuned the availability mix once to stop that being 5%, and left a few in on purpose so the "no match" path is tested and shown in the demo. This is invented data and shows nothing about real nurse supply.
+The generator is seeded, so everything is repeatable. Language mix depends on the city, dementia nurses usually also do elderly care, ratings drift up slightly with experience, and request patterns are the common ones (weekdays, all week, three days, weekends). I loosened the availability mix once because too many requests had nobody eligible. Now every request has at least 3 eligible nurses (smallest pool: R080), so the "no match" path is covered by tests and shows in the demo only when you narrow a request or switch on the 25 km radius. This is invented data and shows nothing about real nurse supply.
 
 ## 15. API and demo
 
 `POST /match` accepts a request body, because that is how the CRM would call it. `GET /requests/{id}/matches` exists so the sample data is easy to try. Input is validated with Pydantic, so unknown skills, malformed slots and out-of-range coordinates return a 422 with the reason instead of an error. The Streamlit app calls the matching code directly rather than going through the API, so one command runs the whole demo, and both use the same `match()` function.
 
+## 16. Learned weights: fit the weights, not the ranking
+
+The bonus item asks for weights learned from simulated feedback. I kept the weighted sum (decision 8) and learned only the four weights, with a logistic regression on "did the match go well" against the four factor values. The coefficients are readable, so the result is still four numbers a coordinator can inspect and change, and the explanations keep working unchanged.
+
+Choices worth knowing:
+
+- **Hidden preferences.** The simulator needs a ground truth to generate outcomes from. I made one up (distance 0.10, rating 0.40, experience 0.20, continuity 0.30) and chose it to differ from my defaults, since otherwise there would be nothing to learn. That makes the result a check that the method works, not evidence about real families.
+- **Exploration.** Past matches are the engine's top pick 60% of the time and a random one of ranks 2 to 5 otherwise. Real feedback only covers nurses who were actually sent, so if the engine always sent its top pick the model would only see top picks and could not tell what makes them good. This selection effect is the main way real feedback differs from my simulation.
+- **Negative coefficients are set to zero.** For these four factors, "more of it made things worse" is not a rule I want applied, and a negative weight would invert the ranking on that factor. This does happen with small histories: in the 18 fits behind the learning curve, 5 had a negative coefficient (the most negative was -0.87), all at 500 matches or fewer. With 1,000 or more matches none did. That is noise, and part of why the curve is bad at small sizes.
+- **Light regularisation** (`C=10`) so a small history does not produce wild weights.
+- **How it is judged.** On 100 requests the model never saw, I rank with each set of weights and score the first pick with the hidden preferences. Ranking with the hidden weights themselves is the ceiling, since nothing can pick better under that rule.
+- **What the numbers say.** The learned weights come out at 0.08, 0.46, 0.18 and 0.28, against hidden 0.10, 0.40, 0.20 and 0.30. The first pick goes well 64.6% of the time against 60.7% with my weights and a ceiling of 64.7%. The learning curve (average of 3 simulated histories) shows 50 to 250 matches barely help (61.8% to 62.7%), and 1,000 matches get close to the ceiling (64.3%).
+- **Not switched on by default.** The learned weights are an option in the demo. Replacing the defaults should wait until there are a few hundred matches with real feedback.
+
+## 17. The demo is built for a laptop screen
+
+The Streamlit app uses a wide layout: controls on the left, then the top 5 as cards with a stacked bar showing what each factor contributed, a map next to them, and the funnel of how many nurses each rule removed. A card's bar is built from the same contributions that add up to the score, and the exact numbers are in an expander. The map is pydeck; I fit its view to the points myself because the default fit clipped the markers. I checked the layout in headless Chrome at laptop and phone widths.
+
 ## Known limits
 
-- Straight-line distance, no road or travel time.
+- Straight-line distance, no road or travel time, and no difference between 40 km and 130 km once past 25 km.
 - No capacity limit per nurse.
 - Weekly slots only, so no dates or leave.
-- Weights are hand-set, not learned.
+- Weights are hand-set by default. The learned ones come from simulated feedback only.
 - The fairness simulation treats every first pick as accepted.
 - Everything is on synthetic data, so the numbers show behaviour, not real-world performance.

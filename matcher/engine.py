@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Mapping, Sequence
 
-from .config import MAX_DISTANCE_KM, label
+from .config import label
 from .explain import explain
 from .geo import haversine_km
 from .models import CareRequest, Nurse
@@ -35,7 +35,7 @@ class MatchResult:
 
 
 def eligible_nurses(
-    request: CareRequest, nurses: Sequence[Nurse], max_distance_km: float = MAX_DISTANCE_KM
+    request: CareRequest, nurses: Sequence[Nurse], max_distance_km: float | None = None
 ) -> list[tuple[Nurse, float]]:
     """Nurses who pass every hard rule, each with their distance to the patient."""
     out = []
@@ -51,9 +51,11 @@ def match(
     nurses: Sequence[Nurse],
     weights: Weights = DEFAULT_WEIGHTS,
     top_k: int = 5,
-    max_distance_km: float = MAX_DISTANCE_KM,
+    max_distance_km: float | None = None,
     load: Mapping[str, int] | None = None,
 ) -> MatchResult:
+    if max_distance_km is not None and max_distance_km <= 0:
+        raise ValueError("max_distance_km must be greater than zero (or None for no limit).")
     load = load or {}
     by_id = {n.nurse_id: n for n in nurses}
 
@@ -72,10 +74,12 @@ def match(
         "skill": f"Offer {label(request.required_skill)}",
         "language": f"Speak {request.language}",
         "availability": "Free for every requested slot",
-        "distance": f"Within {max_distance_km:.0f} km",
     }
-    for i, rule in enumerate(RULE_ORDER):
-        checked = set(RULE_ORDER[: i + 1])
+    if max_distance_km is not None:
+        steps["distance"] = f"Within {max_distance_km:.0f} km"
+    rules_in_use = [rule for rule in RULE_ORDER if rule in steps]
+    for i, rule in enumerate(rules_in_use):
+        checked = set(rules_in_use[: i + 1])
         remaining = sum(1 for n in nurses if not (failed_rules[n.nurse_id] & checked))
         funnel.append((steps[rule], remaining))
 
@@ -84,12 +88,13 @@ def match(
         if failed_rules[nurse.nurse_id]:
             continue
         d = distances[nurse.nurse_id]
-        factors = score_factors(nurse, request, d, max_distance_km, load.get(nurse.nurse_id, 0))
+        factors = score_factors(nurse, request, d, load.get(nurse.nurse_id, 0))
         contributions = weighted_contributions(factors, weights)
         candidates.append((sum(contributions.values()), d, nurse, factors, contributions))
 
-    # Ties go to the closer nurse, then to the lower id, so results are repeatable.
-    candidates.sort(key=lambda c: (-round(c[0], 6), round(c[1], 3), c[2].nurse_id))
+    # Highest score first. Exact ties go to the closer nurse, then to the lower id,
+    # so results are repeatable.
+    candidates.sort(key=lambda c: (-c[0], c[1], c[2].nurse_id))
 
     matches: list[Match] = []
     for i, (score, d, nurse, factors, contributions) in enumerate(candidates[:top_k]):
@@ -113,7 +118,11 @@ def match(
     if not candidates:
         notes.append("No nurse meets every requirement. See the funnel to find which rule removed the most.")
     elif len(candidates) < top_k:
-        notes.append(f"Only {len(candidates)} nurse(s) meet every requirement.")
+        count = len(candidates)
+        notes.append(
+            f"Only {count} nurse meets every requirement." if count == 1
+            else f"Only {count} nurses meet every requirement."
+        )
     for prev_id in request.previous_nurse_ids:
         prev = by_id.get(prev_id)
         if prev is not None and failed_rules[prev_id]:

@@ -21,6 +21,11 @@ SkillName = Literal[*SKILLS]
 LanguageName = Literal[*LANGUAGES]
 CityName = Literal[*CITIES]
 
+RADIUS_HELP = (
+    "Optional service radius in km. Nurses further from the patient are left out. "
+    "Without it, distance only affects the score."
+)
+
 
 class CareRequestIn(BaseModel):
     request_id: str = "adhoc"
@@ -28,7 +33,7 @@ class CareRequestIn(BaseModel):
     patient_name: str = ""
     required_skill: SkillName
     language: LanguageName
-    city: CityName | None = None
+    city: CityName | None = Field(None, description="For display only. Matching uses lat and lon.")
     lat: float = Field(ge=-90, le=90)
     lon: float = Field(ge=-180, le=180)
     slots: list[str] = Field(min_length=1, description='e.g. ["Mon-day", "Tue-day"]')
@@ -187,18 +192,28 @@ def list_requests(request: Request) -> list[RequestSummary]:
 
 @app.get("/requests/{request_id}/matches", response_model=MatchResponse)
 def matches_for_sample_request(
-    request_id: str, request: Request, top_k: int = Query(5, ge=1, le=20)
+    request_id: str,
+    request: Request,
+    top_k: int = Query(5, ge=1, le=20),
+    max_distance_km: float | None = Query(None, gt=0, description=RADIUS_HELP),
 ) -> MatchResponse:
     """Top nurses for one of the sample requests."""
     care_request = next((r for r in request.app.state.requests if r.request_id == request_id), None)
     if care_request is None:
         raise HTTPException(status_code=404, detail=f"No sample request with id {request_id!r}")
-    return to_response(match(care_request, request.app.state.nurses, top_k=top_k))
+    return to_response(
+        match(care_request, request.app.state.nurses, top_k=top_k, max_distance_km=max_distance_km)
+    )
 
 
 @app.post("/match", response_model=MatchResponse)
 def match_request(
-    body: CareRequestIn, request: Request, top_k: int = Query(5, ge=1, le=20)
+    body: CareRequestIn,
+    request: Request,
+    top_k: int = Query(5, ge=1, le=20),
+    max_distance_km: float | None = Query(None, gt=0, description=RADIUS_HELP),
 ) -> MatchResponse:
     """Top nurses for a care request sent in the body."""
-    return to_response(match(body.to_domain(), request.app.state.nurses, top_k=top_k))
+    return to_response(
+        match(body.to_domain(), request.app.state.nurses, top_k=top_k, max_distance_km=max_distance_km)
+    )
