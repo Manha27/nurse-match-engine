@@ -47,20 +47,6 @@ header[data-testid="stHeader"] { display: none; }
 /* ---- header ---- */
 .nm-title h1 { margin: 0; font-size: 2rem; font-weight: 600; color: #10252B; letter-spacing: -0.01em; line-height: 1.15; }
 .nm-title p { margin: 2px 0 0; color: #26404A; font-size: 1rem; }
-.st-key-hero { background: linear-gradient(120deg, #0B4A47 0%, #0F5F5A 55%, #1B8579 100%);
-  border-radius: 16px; padding: 0.9rem 1.4rem; margin-bottom: 0.7rem;
-  box-shadow: 0 2px 8px rgba(11,74,71,0.18); }
-.st-key-hero .nm-title h1 { color: #fff; }
-.st-key-hero .nm-title p { color: #D6ECE9; }
-.st-key-hero .nm-badge { display: inline-block; background: rgba(255,255,255,0.16); color: #fff;
-  border-radius: 999px; padding: 2px 12px; font-size: 0.8rem; margin-right: 0.4rem; }
-.st-key-hero [data-baseweb="button-group"] { background: rgba(255,255,255,0.14) !important; }
-.st-key-hero .st-key-toptabs_box { background: transparent !important; }
-.st-key-hero .st-key-toptabs_box button { color: #E3F2F0 !important; }
-.st-key-hero .st-key-toptabs_box button[aria-checked="true"],
-.st-key-hero .st-key-toptabs_box button[aria-pressed="true"],
-.st-key-hero .st-key-toptabs_box button[kind="segmented_controlActive"] {
-  background: #fff !important; color: #0F5F5A !important; }
 .st-key-toptabs_box [data-baseweb="button-group"] { background: #E8F0F0; border-radius: 999px; padding: 4px; gap: 2px; }
 .st-key-toptabs_box button { border: 0 !important; border-radius: 999px !important; background: transparent !important;
   color: #4B6168 !important; font-weight: 500; min-height: 44px; padding: 0 22px; }
@@ -69,9 +55,9 @@ header[data-testid="stHeader"] { display: none; }
   background: #0F5F5A !important; color: #fff !important; }
 
 /* ---- panels (internal scroll) ---- */
-.st-key-left { height: calc(100vh - 8.6rem) !important; max-height: calc(100vh - 8.6rem) !important; overflow-y: auto !important; padding-right: 4px; }
-.st-key-mid, .st-key-right { height: calc(100vh - 13.6rem) !important; max-height: calc(100vh - 13.6rem) !important; overflow-y: auto !important; padding-right: 4px; }
-.st-key-fullpage { height: calc(100vh - 8.6rem) !important; max-height: calc(100vh - 8.6rem) !important; overflow-y: auto !important; padding-right: 6px; }
+.st-key-left { height: calc(100vh - 6.6rem) !important; max-height: calc(100vh - 6.6rem) !important; overflow-y: auto !important; padding-right: 4px; }
+.st-key-mid, .st-key-right { height: calc(100vh - 13.2rem) !important; max-height: calc(100vh - 13.2rem) !important; overflow-y: auto !important; padding-right: 4px; }
+.st-key-fullpage { height: calc(100vh - 6.6rem) !important; max-height: calc(100vh - 6.6rem) !important; overflow-y: auto !important; padding-right: 6px; }
 .st-key-left > div, .st-key-right > div { max-width: 100%; }
 .st-key-left::-webkit-scrollbar, .st-key-mid::-webkit-scrollbar, .st-key-right::-webkit-scrollbar,
 .st-key-fullpage::-webkit-scrollbar { width: 8px; }
@@ -421,8 +407,7 @@ def show_results(request: CareRequest, weights: Weights, radius_km: float | None
     ]
     kpi_box.html(kpi_html(kpis))
     for note in result.notes:
-        if matches or not note.startswith("No nurse meets"):
-            kpi_box.warning(note)
+        kpi_box.warning(note)
 
     if not matches:
         mid.html('<div class="nm-empty"><b>No nurse meets every requirement.</b> The bars on the right show '
@@ -572,14 +557,14 @@ def main() -> None:
     page = st.session_state["page"]
     st.session_state.setdefault("toptabs", page)
 
-    with st.container(key="hero"):
-        head_l, head_r = st.columns([2.2, 1.5], vertical_alignment="center")
-        head_l.html('<div class="nm-title"><h1>Nurse Match Engine</h1>'
-                    "<p>Find the best nurse for your care request, with complete transparency.</p></div>")
-        with head_r:
-            with st.container(key="toptabs_box"):
-                st.segmented_control("Pages", PAGES, key="toptabs", label_visibility="collapsed",
-                                     on_change=sync_from_top, width="stretch")
+    head_l, head_r = st.columns([2.2, 1.5], vertical_alignment="center")
+    head_l.html('<div class="nm-title"><h1>Nurse Match Engine</h1>'
+                "<p>Find the best nurse for your care request with complete transparency.</p></div>")
+    with head_r:
+        with st.container(key="toptabs_box"):
+            st.segmented_control("Pages", PAGES, key="toptabs", label_visibility="collapsed",
+                                 on_change=sync_from_top, width="stretch")
+
     if page == "Find a Nurse":
         find_page()
     else:
