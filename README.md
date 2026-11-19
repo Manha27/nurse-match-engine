@@ -1,45 +1,112 @@
-# nurse-match-engine
+# Nurse Match Engine
 
-Given a home-care request, this ranks the nurses who could take it and says why each one is where it is.
+A small matching system for home-care requests. It filters out nurses who do not meet the request, ranks the remaining nurses, and explains each result.
 
-It was built for the TheCarePal AI/ML internship assignment (AI-05, nurse to patient matching). All data is synthetic.
+**Live demo:** https://nurse-patient-match.streamlit.app/
 
-The matching works in two steps. Hard rules (skill, language and availability) remove nurses who cannot do the job at all. The remaining nurses are scored on distance, rating, experience and whether they have looked after this patient before, then ranked. Each recommendation comes with a sentence built from the same numbers that produced the score. An optional travel radius can also be switched on, which is off by default.
+All nurses, patients, locations, ratings and requests in this project are synthetic. The app is a demonstration, not a tool for making real care or hiring decisions.
 
-## Run it
+## How matching works
 
-Python 3.11 or newer.
+The engine has two stages:
+
+1. **Eligibility:** a nurse must offer the required care skill, speak the requested language and be available for every requested day and shift. A travel radius can be enabled as an additional rule.
+2. **Ranking:** eligible nurses are scored using distance, rating, experience and whether they have cared for the patient before. The weighted contributions add up to the displayed score. The explanation is generated from those same values; it does not use a language model.
+
+Distance is straight-line distance calculated from coordinates, not driving time. It affects the score by default but does not exclude a nurse unless the optional radius is enabled.
+
+## Run locally
+
+Python 3.11 or newer is required.
 
 ```bash
 git clone https://github.com/Manha27/nurse-match-engine.git
 cd nurse-match-engine
 python -m venv .venv
-source .venv/bin/activate            # Windows PowerShell: .venv\Scripts\Activate.ps1
+
+# Windows PowerShell
+.venv\Scripts\Activate.ps1
+
+# macOS / Linux
+# source .venv/bin/activate
+
 pip install -r requirements.txt
-
-# the repo ships with generated data; this recreates it (same seed, same output)
-python -m matcher.data_gen --seed 42
-
-pytest                                   # 55 tests
-streamlit run app/streamlit_app.py       # demo, opens in the browser
-uvicorn api.main:app --reload            # API, docs at http://localhost:8000/docs
-python -m matcher.fairness               # fairness table, printed to the terminal
-python -m matcher.learning               # learned weights from simulated feedback
+pytest -q
+streamlit run app/streamlit_app.py
 ```
 
-## The demo
+The repository includes the generated dataset, so the app can be run without generating data again. To recreate it with the same seed:
 
-`streamlit run app/streamlit_app.py` opens an app with three pages, switched from the tabs at the top right. It is sized to fit the browser window: the page itself never scrolls, and each panel scrolls on its own if it needs to.
+```bash
+python -m matcher.data_gen --seed 42
+```
 
-- **Find a Nurse.** The left panel holds the care request (sample request, care needed, language, patient's city, days, shift, previous nurse) and the scoring controls. The weights, learned-weights option and travel radius are under "Scoring options". Press "Find Top Matches" to apply them. Four summary cards sit across the top. Below them are the top 5 nurses as cards with distance, experience, languages, skills and the match score. "View Details" opens a pop-up with the plain-language reason and exact score breakdown, and shows the same nurse in the right-hand panel. There you get the map (use "Expand map" for a large pop-up), and a "Why this nurse" tab with the plain-language reason and exact score breakdown, next to a tab showing how many nurses each hard rule removed. Text size scales with the window, so it stays readable on large or zoomed-out screens. On phones and tablets (up to 1100px wide) everything stacks into one column and the whole page scrolls normally.
-- **Fairness Analytics.** The fairness numbers and a chart of first picks with and without workload balancing.
-- **Learned Weights.** How the weights were learned from simulated feedback and whether it helps.
+The generator writes 200 nurses and 100 requests to `data/`.
 
-Things worth trying: R001 (the previous nurse ranks first), R004 (a Pune patient whose #4 and #5 matches live in Mumbai, then switch on the radius), R080 (only 3 eligible nurses).
+## Demo pages
+
+### Find a Nurse
+
+Choose a sample request or adjust its care skill, language, city, days, shift and previous nurse. The scoring options allow the weights to be changed and an optional travel radius to be applied. The results show the eligible count, ranked nurses, match scores, map, eligibility funnel and a score breakdown.
+
+The score breakdown uses:
+
+| Factor | Default weight | Meaning |
+|---|---:|---|
+| Distance | 0.30 | Closer nurses receive a higher value. The value falls to zero at 25 km. |
+| Rating | 0.25 | Review ratings, adjusted towards 4.2 when there are few reviews. |
+| Experience | 0.15 | Years of experience, capped at 10. |
+| Continuity | 0.30 | 1 when the nurse has cared for the patient before; otherwise 0. |
+
+Weights are normalised before scoring, so their relative proportions matter. The score is a ranking aid, not a probability of good care.
+
+### Fairness Analytics
+
+This page studies how often each nurse appears first or in the top five across the 100 sample requests. It compares normal ranking with an optional workload penalty that reduces the score of nurses who have already been picked first in earlier requests in the simulation.
+
+The Gini value measures how concentrated first picks are: 0 means an even distribution; larger values mean more concentration. The page also compares the result with a random eligible-nurse baseline and reports how much the match score changes when balancing is used.
+
+This is **allocation fairness within the synthetic nurse pool**. It is not a demographic fairness or bias audit: the dataset has no real people or protected-group labels, and the analysis does not establish fairness in a real service. First picks are recommendations, not confirmed assignments.
+
+### Learned Weights
+
+This page is a research demonstration of how scoring weights could be estimated from past outcomes. It creates simulated matches, assigns simulated good/bad outcomes using invented hidden preferences, and fits a logistic regression model to those examples. The learned weights are then evaluated on sample requests not used for fitting.
+
+The feedback is generated again by the program; it is not collected from the current device or from clicks in the app. Searching for nurses does not create feedback or update a personal history. The report is deterministic for the supplied seeds and is cached during an app session.
+
+The current experiment learns from 2,000 simulated matches. On the held-out requests, the recorded run gave a 60.7% expected success rate with the hand-set weights, 64.6% with learned weights and 64.7% with the simulator's hidden weights. These are results under the simulator's invented rule, not real-world performance estimates.
+
+## Useful sample requests for testing
+
+| Request | Patient | What it demonstrates |
+|---|---|---|
+| `R001` | Radha Pereira | Previous nurse N065 is eligible and ranks first, showing continuity. |
+| `R004` | Deepa Joshi | Without a radius, nurses from another city can appear when local options are limited. With a 25 km radius, only three remain. |
+| `R018` | Shweta Chauhan | Only four nurses qualify; the previous nurse is not eligible. |
+| `R030` | Geeta Singh | No nurse remains when a 25 km radius is applied. |
+| `R044` | Rohit Pereira | A 25 km radius leaves only two nurses. |
+| `R061` | Savita Bhosale | Dementia-care and Punjabi-language requirements, with five eligible nurses. |
+| `R080` | Rohit Shinde | Smallest standard eligible pool: three nurses. |
+| `R092` | Amit Mehta | Another no-match case with a 25 km radius. |
+
+For the cleanest first run, start with `R001`, then try `R004` with and without the radius, `R080`, and `R030`. The remaining requests show additional edge cases.
 
 ## API
 
-`POST /match` takes a care request and returns the top nurses (`top_k` defaults to 5, maximum 20). `max_distance_km` is optional and leaves out nurses beyond that distance.
+The FastAPI service uses the same matching engine as the Streamlit app. Start it in a second terminal:
+
+```bash
+uvicorn api.main:app --reload
+```
+
+Open `http://localhost:8000/docs` for the interactive API documentation.
+
+- `GET /health` checks that the service is running.
+- `GET /requests` lists the sample requests.
+- `GET /requests/{request_id}/matches` ranks a sample request.
+- `POST /match` ranks a custom request. `top_k` defaults to 5 (maximum 20); `max_distance_km` is optional.
+
+Example request:
 
 ```bash
 curl -X POST "http://localhost:8000/match?top_k=3" \
@@ -54,158 +121,44 @@ curl -X POST "http://localhost:8000/match?top_k=3" \
   }'
 ```
 
-Trimmed response:
-
-```json
-{
-  "eligible_count": 18,
-  "funnel": [
-    {"step": "All nurses", "nurses_remaining": 200},
-    {"step": "Offer dementia care", "nurses_remaining": 72},
-    {"step": "Speak Marathi", "nurses_remaining": 37},
-    {"step": "Free for every requested slot", "nurses_remaining": 18}
-  ],
-  "matches": [
-    {
-      "rank": 2,
-      "nurse": {"nurse_id": "N100", "name": "Radha Deshmukh", "rating": 4.9, "years_experience": 7},
-      "score": 0.4315,
-      "distance_km": 16.13,
-      "explanation": "Rated 4.9 from 40 reviews and has 7 years of experience. Ranks below #1 mainly on distance (-0.15 of score)."
-    }
-  ]
-}
-```
-
-Other endpoints: `GET /requests` lists the 100 sample requests, `GET /requests/{id}/matches` ranks one of them, `GET /health`. Bad input (unknown skill, a slot like `Funday-day`, latitude out of range, a radius of zero) gets a 422 with the reason. The `city` field is for display only: matching uses `lat` and `lon`.
-
-## How it works
-
-**Data** (`matcher/data_gen.py`). 200 nurses and 100 requests across Pune, Mumbai and Delhi, from a fixed seed. Nurses have 1 to 4 skills, spoken languages that depend on the city, a home location, years of experience, a rating with a review count, and weekly availability. Requests ask for one skill and one language, a weekly pattern (weekdays, all week, Mon/Wed/Fri and so on) on a day or night shift, and about a third name a nurse who has looked after the patient before.
-
-**Hard rules** (`matcher/rules.py`). A nurse must offer the skill, speak the language and be free for every requested slot. Break one and the nurse is out, no matter how well they score elsewhere. Distance is not a hard rule: it is scored. If the operations team wants a service area, the optional radius (`max_distance_km`) adds a fourth rule.
-
-**Scoring** (`matcher/scoring.py`). Each factor becomes a number from 0 to 1, then the weights are applied.
-
-| Factor | Weight | 0 to 1 scale |
-|---|---|---|
-| Distance | 0.30 | 1 at the door, falling in a straight line to 0 at 25 km, and 0 beyond |
-| Rating | 0.25 | Shrunk towards 4.2 when there are few reviews, then 3.0 to 5.0 mapped to 0 to 1 |
-| Experience | 0.15 | Years of experience, counted up to 10 |
-| Same nurse as before | 0.30 | 1 if the nurse has cared for this patient, else 0 |
-
-Weights are checked on creation: none can be negative and they cannot all be zero. Scores are compared at full precision, and exact ties go to the nearer nurse and then the lower id.
-
-**Explanations** (`matcher/explain.py`). Plain templates over the score breakdown, with no language model. Strong factors are named, weak ones are called out, and every nurse below #1 gets a line saying which factor cost them the most compared with the nurse above.
-
-**Fairness** (`matcher/fairness.py`) and **learned weights** (`matcher/learning.py`) are covered below.
+Invalid skills, languages, slots, coordinates and non-positive travel radii are rejected by request validation.
 
 ## Evaluation
 
-**Hand-checked cases** (`tests/test_hand_checked.py`). 29 tests built from small scenarios where I worked out the answer on paper first, with the arithmetic in the test: each hard rule on its own, a nurse failing several rules, one exact score computed by hand, a five-star rating from two reviews losing to a solid record, continuity beating a slightly better nurse (and losing when the history is removed), the optional radius, weight validation, fewer than five eligible nurses, none eligible, and ties.
+The project includes 55 automated tests. They cover the hard rules, multiple simultaneous rule failures, exact score calculations, rating adjustment for small review counts, continuity, optional radius, ties, empty and short result lists, API validation, fairness calculations and the simulated learning process.
 
-**Fairness** (`python -m matcher.fairness`, also in the demo). Each of the 100 requests is ranked and we count who comes first. Raw numbers from the seeded data:
+Run them with:
 
-| Measure | Score only | With workload balancing (0.10) |
-|---|---|---|
-| Requests with no eligible nurse | 0 | 0 |
-| Gini of first picks (random-pick baseline 0.76) | 0.83 | 0.78 |
-| Most first picks for one nurse | 8 (8%) | 5 (5%) |
-| Share of first picks held by the 10 busiest nurses | 43% | 35% |
-| Nurses never in anyone's top 5 | 81 | 74 |
-| Nurses first for every request they qualify for | 0 | 0 |
-| Average match score of the first pick | 0.555 | 0.552 |
-| Average distance of the first pick (km) | 9.6 | 10.2 |
-
-What this says: no nurse is always picked first, and the busiest nurse gets 8% of first picks. Ranking on score alone is somewhat more concentrated than picking a random eligible nurse (0.83 against 0.76). Adding a small penalty for nurses who were already picked first brings it close to random (0.78). The cost is small and visible: the average score of the first pick drops from 0.555 to 0.552 and the first pick lives 0.6 km further away on average. The penalty is off by default because it is a policy choice for the operations team.
-
-81 of the 200 nurses never reach anyone's top 5. For 29 of them that is because they do not qualify for any of the 100 requests (skill, language or availability never lines up). The other 52 qualified for at least one request but never ranked high enough, which is the part worth watching. DECISIONS.md has more on how to read these numbers.
-
-**Distance and the travel radius.** Because distance is scored and not a rule, a nurse in another city can appear when few local nurses qualify. In the sample data 29 of the 497 top-5 slots (6%) go to a nurse based in a different city than the patient, and R004 is an example. The explanation says so ("Held back because the nurse is 131.6 km away") and the demo marks those cards "Based in Mumbai". With the radius switched on at 25 km, 12 requests have fewer than 5 eligible nurses, and two of them (R030 and R092) have none. Which behaviour the operations team wants is their call, so both are available.
-
-## Learned weights (bonus)
-
-The weights in the scoring table are my guess. `matcher/learning.py` shows how they would be learned instead.
-
-There is no real feedback and I may not use any, so the feedback is simulated. A hidden set of family preferences (distance 0.10, rating 0.40, experience 0.20, continuity 0.30, which the engine never sees) decides whether a past match "went well", with some luck added. The steps:
-
-1. Generate past matches by running the normal engine. Usually the top nurse is assigned, but 40% of the time one of ranks 2 to 5 is, so the data shows what separates good nurses from so-so ones.
-2. Draw an outcome for each match from the hidden preferences.
-3. Fit a logistic regression of outcome on the four factor values. The coefficients, scaled to add up to 1, become the weights.
-4. Rank 100 requests the model never saw, with each set of weights, and see how likely the first pick is to go well under the hidden preferences.
-
-Results (`docs/learning_report.md`, all repeatable):
-
-| Factor | Hand-set | Hidden preference | Learned from 2,000 matches |
-|---|---|---|---|
-| Distance | 0.30 | 0.10 | 0.08 |
-| Rating | 0.25 | 0.40 | 0.46 |
-| Experience | 0.15 | 0.20 | 0.18 |
-| Continuity | 0.30 | 0.30 | 0.28 |
-
-| Weights used | Chance the first pick goes well |
-|---|---|
-| Hand-set | 60.7% |
-| Learned | 64.6% |
-| Best possible (the hidden preferences) | 64.7% |
-
-The learning curve, averaged over 3 simulated histories:
-
-| Past matches | Distance from hidden weights | Chance first pick goes well |
-|---|---|---|
-| 50 | 0.42 | 62.1% |
-| 100 | 0.51 | 61.8% |
-| 250 | 0.42 | 62.7% |
-| 500 | 0.25 | 63.0% |
-| 1,000 | 0.12 | 64.3% |
-| 2,000 | 0.10 | 64.6% |
-
-The first pick improves from the start, but the learned weights themselves are not close to the hidden ones until around 1,000 matches. My hand-set weights are 0.40 away from the hidden ones, so below 500 matches the learned weights are no closer than my guess. With small histories the fit is also noisy: in 5 of the 18 fits (all at 500 matches or fewer) one coefficient came out negative and was set to zero. Only 3 histories were averaged, so read the curve as a guide.
-
-Limits to keep in mind. The feedback comes from a known linear rule, so this shows the method recovers what it should, not how it would do on real feedback, which is noisier and has its own biases. The gain is modest, about 3.9 points. In the demo, tick "Use weights learned from simulated feedback" under "Scoring" to rank with them.
-
-## Cost to run
-
-| Part | Cost |
-|---|---|
-| Python, NumPy, pandas, scikit-learn, pytest | Free, open source |
-| FastAPI, uvicorn, httpx | Free, open source |
-| Streamlit, pydeck | Free, open source |
-| Map background tiles | Loaded from a free public tile service in the browser, no key or account |
-| Language model or paid API | None used |
-| Hosting | None needed to run it locally. I did not deploy it. |
-
-No API keys or secrets are needed anywhere. `.env.example` lists the two optional settings.
-
-## Assumptions
-
-- Availability is a weekly repeating pattern of slots (a day plus a day or night shift). There are no dates, leave days or one-off visits.
-- A request needs one skill and one language, and the nurse must cover all of its slots.
-- Distance is straight-line, not road distance. Beyond 25 km every nurse gets 0 for distance, so a nurse 40 km away and one 130 km away look the same on that factor.
-- Nurses have no cap on how many patients they can take. Capacity would be a hard rule in a real system.
-- A nurse with no reviews has their rating treated as a typical 4.2.
-- Every sample request has at least 3 eligible nurses (the smallest pool is R080), so the "no eligible nurse" case only shows up in the demo when you narrow a request or switch on the 25 km radius (R030 and R092 then have nobody).
-
-## What I would build next
-
-1. Feed the learning step with real feedback: log which recommendation was accepted and how the visit went. The method is built and tested on simulated feedback, but nothing here has seen real data.
-2. Road or travel-time distance (OSRM or similar), since 5 km in Mumbai and 5 km in Pune are different journeys, and a distance score that keeps falling past 25 km.
-3. Capacity as a hard rule, plus leave and one-off availability pulled from the nurse app.
-4. A service area per city, so the radius is a setting the operations team owns rather than a number in the request.
-5. A thin wrapper so the CRM can call the engine, for example as a Cloud Function in the existing Firebase setup.
-
-## AI tools used
-
-Claude (Anthropic) was used to plan the design, draft the code, tests and documentation, and check the arithmetic in the test cases. I reviewed and understand each part, and the choices and their reasons are written down in `docs/DECISIONS.md`.
-
-## Layout
-
+```bash
+pytest -q
 ```
-matcher/       the engine: data_gen, rules, scoring, explain, engine, fairness, learning
-api/main.py    FastAPI app
-app/           Streamlit demo
-tests/         hand-checked cases, data and fairness checks, learning checks, API tests
-data/          generated nurses.json and requests.json
-docs/          DECISIONS.md, the fairness report and the learning report
-.streamlit/    demo theme
+
+The detailed design choices and reproducible reports are in `docs/DECISIONS.md`, `docs/fairness_report.md` and `docs/learning_report.md`.
+
+## Assumptions and limits
+
+- All data is generated. No patient, nurse or visit records are used.
+- A request contains one care skill, one language and a repeating weekly availability pattern.
+- Availability is represented by day and day/night shift. Dates, leave and one-off visits are not modelled.
+- Distance is straight-line distance, not road distance or travel time.
+- The engine does not model nurse capacity, current caseload or travel between consecutive visits.
+- Ratings are adjusted towards a 4.2 prior when review counts are low; a nurse with no reviews receives the prior value.
+- The default weights are hand-set choices. The learned weights use simulated outcomes only.
+- The fairness page measures recommendation distribution, not actual assignments or demographic fairness.
+- This project is for demonstration and academic evaluation. It should not be used to select a nurse for a real patient without clinical, operational and human review.
+
+## AI tool use
+
+Claude Code was used for front-end design assistance. The matching logic, backend implementation, data generation, tests and evaluation were developed by me.
+
+## Project structure
+
+```text
+app/                 Streamlit demo
+api/                 FastAPI endpoints
+matcher/             Data models, rules, scoring, matching, fairness and learning
+data/                 Synthetic nurse and request data
+tests/                Automated tests
+docs/                 Design decisions and evaluation reports
+.streamlit/           Streamlit theme and settings
 ```

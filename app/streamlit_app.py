@@ -351,20 +351,6 @@ def funnel_html(funnel: list[tuple[str, int]]) -> str:
     return f'<div class="nm-box">{rows}</div>'
 
 
-def breakdown_table(matches: list[Match]) -> pd.DataFrame:
-    return pd.DataFrame(
-        [
-            {
-                "Rank": m.rank,
-                "Nurse": f"{m.nurse.name} ({m.nurse.nurse_id})",
-                "Score": m.score,
-                **{FACTOR_NAMES[k]: m.contributions[k] for k in FACTOR_COLORS},
-            }
-            for m in matches
-        ]
-    )
-
-
 def factor_table_html(m: Match, weights: Weights) -> str:
     total_w = weights.total
     w = weights.as_dict()
