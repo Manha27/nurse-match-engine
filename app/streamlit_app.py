@@ -40,8 +40,6 @@ FACTOR_NAMES = {
     "continuity": "Continuity",
 }
 PAGES = ["Find a Nurse", "Fairness Analytics", "Learned Weights"]
-SUGGESTION_NOTE = ("Recommendations are suggestions. Final assignment needs the nurse's confirmation "
-                   "that she is available and accepts.")
 
 CSS = """
 <style>
@@ -59,28 +57,28 @@ CSS = """
 #MainMenu, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] { display: none; }
 [data-testid="stHeader"] { background: transparent; height: 0; }
 [data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"], [data-testid="collapsedControl"] { display: none; }
-html { font-size: clamp(13px, 0.5vw + 7px, 17px); }
+html { font-size: clamp(13px, 0.4vw + 7px, 15.5px); }
 
 /* header: logo, title, page tabs */
 .nm-brand { display: flex; align-items: center; gap: 14px; }
 .nm-logo { flex: 0 0 50px; height: 50px; border-radius: 15px; background-color: var(--teal);
   box-shadow: 0 6px 14px rgba(15,92,88,.28); background-repeat: no-repeat; background-position: center; background-size: 28px;
   background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 21s-7-4.4-9.3-9A5.4 5.4 0 0 1 12 6.2 5.4 5.4 0 0 1 21.3 12C19 16.6 12 21 12 21z'/%3E%3Cpath d='M12 9.5v5M9.5 12h5'/%3E%3C/svg%3E"); }
-.nm-brand .t { font-size: 1.95rem; font-weight: 800; letter-spacing: -.035em; color: var(--ink); line-height: 1.1; }
+.nm-brand .t { font-size: 2.1rem; font-weight: 700; letter-spacing: -.035em; color: var(--ink); line-height: 1.1; }
 .nm-brand .t em { font-style: normal; color: var(--teal-mid); }
 .nm-brand .s { color: var(--muted); font-size: .95rem; margin-top: 3px; }
-.nm-pill { display: inline-block; vertical-align: middle; margin-left: 10px; font-size: .68rem; font-weight: 700; letter-spacing: .02em;
+.nm-pill { display: inline-block; vertical-align: middle; margin-left: 10px; font-size: .68rem; font-weight: 600; letter-spacing: .02em;
   color: var(--teal); background: var(--mint); border: 1px solid var(--mint-line); border-radius: 999px; padding: 2px 9px; }
 
 .st-key-nav { display: flex; justify-content: flex-end; }
 [data-testid="stButtonGroup"] button { border-radius: 999px !important; }
 .st-key-nav [data-testid="stButtonGroup"] { background: rgba(255,255,255,.7); border: 1px solid var(--line); border-radius: 999px; padding: 4px; gap: 4px; box-shadow: var(--shadow); }
 .st-key-nav button { border: 0 !important; background: transparent; padding: 8px 20px; }
-.st-key-nav button p { font-size: .92rem; font-weight: 600; color: #45596B; }
+.st-key-nav button p { font-size: .92rem; font-weight: 500; color: #45596B; }
 
 
 /* page header on the other pages */
-.nm-title { font-size: 1.5rem; font-weight: 800; letter-spacing: -.03em; margin: 0; color: var(--ink); }
+.nm-title { font-size: 1.5rem; font-weight: 700; letter-spacing: -.03em; margin: 0; color: var(--ink); }
 .nm-sub { color: var(--muted); font-size: .92rem; margin: 2px 0 10px; }
 
 /* panels sized to the window */
@@ -95,9 +93,9 @@ html { font-size: clamp(13px, 0.5vw + 7px, 17px); }
 
 /* widgets */
 .stSelectbox label, .stTextInput label, .stSlider label, .stCheckbox label, .stSegmentedControl label,
-.stPills label, .stToggle label { color: #2B4256; font-size: .82rem; font-weight: 600; }
+.stPills label, .stToggle label { color: #2B4256; font-size: .82rem; font-weight: 500; }
 [data-baseweb="select"] > div, .stTextInput input { background: #fff; border-color: #D5E0E6; border-radius: 10px; }
-.stButton button, [data-testid="stFormSubmitButton"] button { border-radius: 10px; font-weight: 700; }
+.stButton button, [data-testid="stFormSubmitButton"] button { border-radius: 10px; font-weight: 600; }
 .stButton button[kind="primary"], [data-testid="stFormSubmitButton"] button[kind="primaryFormSubmit"] {
   background: var(--teal); border-color: var(--teal); color: #fff; box-shadow: 0 4px 10px rgba(15,92,88,.22); }
 .stButton button[kind="primary"]:hover, [data-testid="stFormSubmitButton"] button[kind="primaryFormSubmit"]:hover {
@@ -105,20 +103,20 @@ html { font-size: clamp(13px, 0.5vw + 7px, 17px); }
 .stButton button[kind="secondary"] { background: #fff; border: 1px solid var(--mint-line); color: var(--teal); }
 button[data-variant="pills"] { border-radius: 999px !important; background: #fff; border: 1px solid #D5E0E6; }
 button[data-variant="pills"][data-selected="true"] { background: var(--mint) !important; border-color: var(--teal-mid) !important; }
-button[data-variant="pills"][data-selected="true"] * { color: var(--teal) !important; font-weight: 700; }
+button[data-variant="pills"][data-selected="true"] * { color: var(--teal) !important; font-weight: 600; }
 button[data-variant="segmented_control"][aria-checked="true"] { background: var(--teal) !important; border-color: var(--teal) !important; }
 button[data-variant="segmented_control"][aria-checked="true"] * { color: #fff !important; }
 [data-testid="stExpander"] { border: 1px solid var(--line); border-radius: 12px; background: #F6FAFA; }
 [data-testid="stDataFrame"] { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
 [data-testid="stMetric"] { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; box-shadow: var(--shadow); }
-[data-testid="stMetricLabel"] { color: var(--muted); font-size: .82rem; font-weight: 600; }
-[data-testid="stMetricValue"] { font-size: 1.6rem; font-weight: 800; color: var(--teal); }
-.section-title { font-size: 1.12rem; font-weight: 800; letter-spacing: -.01em; margin: 2px 0 2px; color: var(--ink); }
+[data-testid="stMetricLabel"] { color: var(--muted); font-size: .82rem; font-weight: 500; }
+[data-testid="stMetricValue"] { font-size: 1.6rem; font-weight: 700; color: var(--teal); }
+.section-title { font-size: 1.12rem; font-weight: 700; letter-spacing: -.01em; margin: 2px 0 2px; color: var(--ink); }
 .section-note { color: var(--muted); font-size: .84rem; line-height: 1.5; margin: 0 0 8px; }
 
 /* summary and KPIs */
 .nm-summary { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px 7px; box-shadow: var(--shadow); }
-.nm-summary .who { font-size: 1.1rem; font-weight: 800; margin-bottom: 7px; }
+.nm-summary .who { font-size: 1.1rem; font-weight: 700; margin-bottom: 7px; }
 .nm-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 4px 0 6px; }
 .nm-kpi { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; box-shadow: var(--shadow);
   display: flex; align-items: center; gap: 12px; min-width: 0; }
@@ -128,12 +126,12 @@ button[data-variant="segmented_control"][aria-checked="true"] * { color: #fff !i
 .nm-kpi .ic.star { background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230F5C58' d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'/%3E%3C/svg%3E"); }
 .nm-kpi .ic.place { background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230F5C58' d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E"); }
 .nm-kpi .ic.person { background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230F5C58' d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E"); }
-.nm-kpi .lb { font-size: .78rem; color: var(--muted); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.nm-kpi .vl { font-size: 1.28rem; font-weight: 800; line-height: 1.2; white-space: nowrap; color: var(--ink); }
+.nm-kpi .lb { font-size: .78rem; color: var(--muted); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nm-kpi .vl { font-size: 1.28rem; font-weight: 700; line-height: 1.2; white-space: nowrap; color: var(--ink); }
 
 /* chips */
 .nm-chip { display: inline-block; background: var(--teal-soft); color: #145D57; border: 1px solid #CFE9E4; border-radius: 999px;
-  padding: 3px 10px; margin: 0 5px 5px 0; font-size: .78rem; font-weight: 600; }
+  padding: 3px 10px; margin: 0 5px 5px 0; font-size: .78rem; font-weight: 500; }
 .nm-chip.ok { background: var(--green-soft); color: #1E6B45; border-color: #C5E6D1; }
 .nm-chip.warn { background: var(--amber-soft); color: #8A5A13; border-color: #F4E1BC; }
 .nm-chip.quiet { background: #F1F5F7; color: #4F6272; border-color: #E4EBEF; }
@@ -147,25 +145,25 @@ button[data-variant="segmented_control"][aria-checked="true"] * { color: #fff !i
 [class*="st-key-card_"] [data-testid="stColumn"]:last-child { border-left: 1px solid var(--line); padding-left: 16px; display: flex; flex-direction: column; justify-content: center; }
 .nm-cardbody { display: flex; gap: 14px; }
 .nm-rank { flex: 0 0 34px; height: 34px; border-radius: 50%; background: var(--mint); color: var(--teal);
-  font-size: .95rem; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  font-size: .95rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 [class*="_sel"] .nm-rank { background: var(--teal); color: #fff; }
 .nm-main { flex: 1; min-width: 0; }
 .nm-head { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; margin-bottom: 5px; }
-.nm-name { font-size: 1.12rem; font-weight: 800; letter-spacing: -.01em; }
+.nm-name { font-size: 1.12rem; font-weight: 700; letter-spacing: -.01em; }
 .nm-id { color: #7A8D9B; font-size: .82rem; font-weight: 500; }
-.nm-badge { background: var(--green-soft); color: #1E6B45; border-radius: 999px; padding: 2px 10px; font-size: .74rem; font-weight: 700; }
-.nm-l1 { font-size: .9rem; color: #2B4256; margin-bottom: 3px; }
-.nm-l1 b { color: var(--ink); font-weight: 700; }
+.nm-badge { background: var(--green-soft); color: #1E6B45; border-radius: 999px; padding: 2px 10px; font-size: .74rem; font-weight: 600; }
+.nm-l1 { font-size: .95rem; color: #2B4256; margin-bottom: 3px; }
+.nm-l1 b { color: var(--ink); font-weight: 600; }
 .nm-l1 .sep { color: #A8B7C1; margin: 0 6px; }
-.nm-l1 .warn { color: #9A5B0C; font-weight: 700; }
-.nm-l2 { font-size: .86rem; color: #50657A; margin-bottom: 2px; }
+.nm-l1 .warn { color: #9A5B0C; font-weight: 600; }
+.nm-l2 { font-size: .9rem; color: #50657A; margin-bottom: 2px; }
 .nm-track { display: flex; height: 6px; background: #EAF0F3; border-radius: 99px; overflow: hidden; margin: 8px 0 0; }
 .nm-track span { display: block; height: 100%; }
 .nm-expl { color: #2B4256; font-size: .92rem; line-height: 1.5; margin-bottom: 8px; }
 .nm-avail { color: #6A7E8C; font-size: .8rem; margin: 0 0 5px; }
 .nm-scorebox { text-align: center; margin-bottom: 4px; }
-.nm-scorebox .k { font-size: .78rem; color: var(--muted); font-weight: 600; }
-.nm-scorebox .v { font-size: 1.9rem; font-weight: 800; color: var(--teal); line-height: 1.1; letter-spacing: -.02em; }
+.nm-scorebox .k { font-size: .78rem; color: var(--muted); font-weight: 500; }
+.nm-scorebox .v { font-size: 1.9rem; font-weight: 700; color: var(--teal); line-height: 1.1; letter-spacing: -.02em; }
 
 /* funnel and tables */
 .nm-fn { margin-bottom: 10px; }
@@ -176,12 +174,33 @@ button[data-variant="segmented_control"][aria-checked="true"] * { color: #fff !i
 .nm-box { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; box-shadow: var(--shadow); }
 .nm-empty { background: #FFF8EC; border: 1px solid #F1DFC2; border-radius: 14px; padding: 16px 18px; color: #6E4D1C; font-size: .94rem; line-height: 1.55; }
 .nm-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
-.nm-table th { text-align: right; color: var(--muted); font-weight: 600; padding: 7px 8px; border-bottom: 1px solid var(--line); }
+.nm-table th { text-align: right; color: var(--muted); font-weight: 500; padding: 7px 8px; border-bottom: 1px solid var(--line); }
 .nm-table td { text-align: right; padding: 7px 8px; border-bottom: 1px solid #EDF2F5; }
 .nm-table th:first-child, .nm-table td:first-child { text-align: left; }
-.nm-table tr.total td { font-weight: 800; background: #E3F5DC; border-bottom: none; }
+.nm-table tr.total td { font-weight: 700; background: #E3F5DC; border-bottom: none; }
 .nm-table tr.total td:first-child { border-radius: 8px 0 0 8px; }
 .nm-table tr.total td:last-child { border-radius: 0 8px 8px 0; }
+
+/* nurse details dialog */
+.nm-dhead { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.nm-dhead .n { font-size: 1.6rem; font-weight: 700; letter-spacing: -.02em; }
+.nm-dhead .i { color: #6A7E8C; font-size: 1rem; }
+.nm-dexpl { font-size: 1.05rem; line-height: 1.55; color: #2B4256; background: #F4F9F9; border: 1px solid var(--line);
+  border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; }
+.nm-dtitle { font-size: 1.1rem; font-weight: 700; margin: 4px 0 10px; }
+.nm-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 10px; }
+.nm-tile { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; }
+.nm-tile .k { font-size: .8rem; color: var(--muted); font-weight: 500; margin-bottom: 3px; }
+.nm-tile .v { font-size: 1.02rem; font-weight: 600; color: var(--ink); }
+.nm-skill { display: inline-block; background: var(--mint); color: var(--teal); border-radius: 999px; padding: 3px 11px; margin: 0 6px 4px 0; font-size: .9rem; font-weight: 500; }
+.nm-avgrid { width: 100%; border-collapse: separate; border-spacing: 5px; table-layout: fixed; }
+.nm-avgrid th { font-size: .82rem; color: var(--muted); font-weight: 600; text-align: center; }
+.nm-avgrid th.rowh { text-align: left; width: 3.6rem; }
+.nm-avgrid td { text-align: center; padding: 9px 0; border-radius: 9px; font-weight: 600; font-size: .95rem; }
+.nm-avgrid td.on { background: var(--mint); color: var(--teal); }
+.nm-avgrid td.off { background: #F0F4F6; color: #B4C1CA; }
+.nm-avgrid td.ask { box-shadow: 0 0 0 2px var(--teal-mid); }
+.nm-table { font-size: 1rem; }
 
 /* map */
 .nm-maplegend { font-size: .8rem; color: var(--muted); line-height: 1.5; }
@@ -195,7 +214,7 @@ button[data-variant="segmented_control"][aria-checked="true"] * { color: #fff !i
   .st-key-ctrl, .st-key-side, .st-key-ranked, .st-key-page { height: auto !important; max-height: none !important; overflow: visible !important; }
   .nm-brand .t { font-size: 1.45rem; }
   .nm-brand .s { font-size: .82rem; }
-  .nm-logo { flex-basis: 42px; height: 42px; }
+  .nm-tiles { grid-template-columns: 1fr; }
   .st-key-nav [data-testid="stButtonGroup"] { flex-wrap: wrap; }
   .st-key-nav button { padding: 6px 13px; }
   [data-testid="stHorizontalBlock"] { flex-wrap: wrap; }
@@ -298,7 +317,7 @@ def card_body_html(m: Match, request: CareRequest) -> str:
     sep = '<span class="sep">•</span>'
     facts = [f"{m.distance_km:.1f} km away", f"{n.years_experience} yrs exp"]
     facts.append(f"★ {n.rating:.1f} ({n.review_count})" if n.review_count else "No reviews yet")
-    line1 = "<b>Free for all requested slots</b>" + "".join(sep + escape(f) for f in facts)
+    line1 = sep.join(f"<b>{escape(facts[0])}</b>" if i == 0 else escape(f) for i, f in enumerate(facts))
     if n.city != request.city:
         line1 += sep + f'<span class="warn">Based in {escape(n.city)}</span>'
     badge = '<span class="nm-badge">Previously served</span>' if n.nurse_id in request.previous_nurse_ids else ""
@@ -360,32 +379,56 @@ def factor_table_html(m: Match, weights: Weights) -> str:
     )
 
 
+def availability_grid_html(slots: frozenset[str], wanted: frozenset[str]) -> str:
+    """Mon to Sun by day and night. Green: free. Ringed: free and asked for by this request."""
+    head = "".join(f"<th>{d}</th>" for d in DAYS)
+    rows = ""
+    for shift in SHIFTS:
+        cells = ""
+        for d in DAYS:
+            slot = f"{d}-{shift}"
+            cls = "on" if slot in slots else "off"
+            if slot in wanted:
+                cls += " ask"
+            cells += f'<td class="{cls}">{"✓" if slot in slots else "–"}</td>'
+        rows += f'<tr><th class="rowh">{shift.capitalize()}</th>{cells}</tr>'
+    return f'<table class="nm-avgrid"><tr><th></th>{head}</tr>{rows}</table>'
+
+
+def tile(title: str, body: str) -> str:
+    return f'<div class="nm-tile"><div class="k">{escape(title)}</div><div class="v">{body}</div></div>'
+
+
 @st.dialog("Nurse details", width="large")
 def details_dialog(m: Match, request: CareRequest, weights: Weights) -> None:
     n = m.nurse
     st.html(
-        f'<div class="nm-head"><span class="nm-name" style="font-size:1.25rem">{escape(n.name)}</span>'
-        f'<span class="nm-id">{escape(n.nurse_id)} · rank #{m.rank} · {escape(n.city)}</span></div>'
-        f'<div class="nm-expl" style="font-size:.95rem">{escape(m.explanation)}</div>'
+        f'<div class="nm-dhead"><span class="n">{escape(n.name)}</span>'
+        f'<span class="i">{escape(n.nurse_id)} · rank #{m.rank} · {escape(n.city)}</span></div>'
+        f'<div class="nm-dexpl">{escape(m.explanation)}</div>'
     )
-    left, right = st.columns([1.2, 1], gap="large")
+    left, right = st.columns([1.1, 1], gap="large")
     with left:
-        st.markdown("**How the score was built**")
-        st.html(factor_table_html(m, weights))
-        st.caption("Contribution = weight × value. The contributions add up to the score.")
+        st.html('<div class="nm-dtitle">How the score was built</div>' + factor_table_html(m, weights)
+                + '<div class="nm-avail" style="margin-top:8px">Contribution = weight × value. '
+                  "The contributions add up to the score.</div>")
     with right:
-        st.markdown("**About this nurse**")
+        rating = f"{n.rating:.1f} from {n.review_count} reviews" if n.review_count else "No reviews yet"
+        tiles = "".join([
+            tile("Distance", f"{m.distance_km:.1f} km straight-line"),
+            tile("Experience", f"{n.years_experience} years"),
+            tile("Rating", rating),
+            tile("Languages", escape(", ".join(sorted(n.languages)))),
+        ])
+        skills = "".join(f'<span class="nm-skill">{escape(label(x).capitalize())}</span>' for x in sorted(n.skills))
         st.html(
-            chip(f"{m.distance_km:.1f} km straight-line from the patient")
-            + chip(f"{n.years_experience} yrs experience")
-            + (chip(f"Rated {n.rating:.1f} from {n.review_count} reviews") if n.review_count
-               else chip("No reviews yet", "quiet"))
-            + "".join(chip(label(s), "quiet") for s in sorted(n.skills))
-            + chip("Speaks " + ", ".join(sorted(n.languages)), "quiet")
-            + f'<div class="nm-avail" style="margin-top:6px">Weekly availability, '
-              f"{escape(describe_availability(n.available_slots))}</div>"
+            '<div class="nm-dtitle">About this nurse</div>'
+            f'<div class="nm-tiles">{tiles}</div>'
+            + tile("Skills", skills).replace('class="nm-tile"', 'class="nm-tile wide"')
+            + '<div class="nm-dtitle" style="margin-top:14px">Weekly availability</div>'
+            + availability_grid_html(n.available_slots, request.slots)
+            + '<div class="nm-avail" style="margin-top:6px">Ringed cells are the slots this request needs.</div>'
         )
-    st.info(SUGGESTION_NOTE)
 
 
 def map_view(points: pd.DataFrame, width_px: int = 360, height_px: int = 380) -> pdk.ViewState:
@@ -553,7 +596,6 @@ def show_results(request: CareRequest, weights: Weights, radius_km: float | None
                                    f'<div class="v">{m.score:.2f}</div></div>')
                         score.button("View Details", key=f"det_{m.rank}", width="stretch", type="primary",
                                      on_click=choose, args=(n.nurse_id,))
-                st.caption(SUGGESTION_NOTE)
 
     with side:
         with st.container(key="side"):
@@ -763,8 +805,8 @@ def main() -> None:
     st.html(CSS)
     head, nav = st.columns([1.5, 1], gap="medium", vertical_alignment="center")
     head.html(
-        '<div class="nm-brand"><div class="nm-logo"></div><div>'
-        '<div class="t">Nurse Match <em>Engine</em><span class="nm-pill">Synthetic data</span></div>'
+        '<div class="nm-brand"><div>'
+        '<div class="t">Nurse Match <em>Engine</em></div>'
         "<div class=\"s\">Find the best nurse for your care request, with complete transparency.</div>"
         "</div></div>")
     with nav:
