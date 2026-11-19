@@ -24,15 +24,16 @@ from matcher.learning import run_experiment, weights_table
 
 st.set_page_config(page_title="Nurse Match Engine", layout="wide", initial_sidebar_state="collapsed")
 
-TEAL = "#0F5F5A"
+TEAL = "#547980"
 FACTOR_NAMES = {"distance": "Distance", "rating": "Rating", "experience": "Experience", "continuity": "Continuity"}
 PAGES = ["Find a Nurse", "Fairness Analytics", "Learned Weights"]
 
 CSS = """
 <style>
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap");
 /* ---- page frame: fit the window, scroll inside panels instead ---- */
-html { font-size: clamp(17px, 0.95vw, 30px); }
-html, body, .stApp { background: #F3F7F7; }
+html { font-size: clamp(14px, 0.82vw, 26px); }
+html, body, .stApp { background: #F5F9EC; }
 header[data-testid="stHeader"] { display: none; }
 [data-testid="stMain"] .block-container { padding: 0.9rem 1.6rem 0.5rem 1.6rem; max-width: 100%; }
 [data-testid="stMain"] { overflow: hidden; }
@@ -44,77 +45,81 @@ header[data-testid="stHeader"] { display: none; }
 /* ---- no sidebar: navigation lives in the top-right tabs ---- */
 [data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"], [data-testid="stSidebarCollapseButton"] { display: none !important; }
 
-/* ---- header ---- */
-.nm-title h1 { margin: 0; font-size: 2rem; font-weight: 600; color: #10252B; letter-spacing: -0.01em; line-height: 1.15; }
-.nm-title p { margin: 2px 0 0; color: #26404A; font-size: 1rem; }
-.st-key-toptabs_box [data-baseweb="button-group"] { background: #E8F0F0; border-radius: 999px; padding: 4px; gap: 2px; }
+/* ---- title banner ---- */
+.st-key-banner { background: linear-gradient(115deg, #594F4F 0%, #547980 62%, #5C8C90 100%); border-radius: 18px; padding: 0.9rem 1.6rem; position: relative; overflow: hidden;
+  box-shadow: 0 6px 18px rgba(84,121,128,0.22); }
+.st-key-banner::before { content: ""; position: absolute; right: -40px; top: -90px; width: 260px; height: 260px; border-radius: 50%; background: rgba(69,173,168,0.35); }
+.st-key-banner::after { content: ""; position: absolute; left: 38%; bottom: -120px; width: 220px; height: 220px; border-radius: 50%; background: rgba(229,252,194,0.12); }
+.st-key-banner > div { position: relative; z-index: 1; }
+.nm-title h1 { margin: 0; font-family: "Fraunces", Georgia, serif !important; font-size: 2.1rem; font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1.15; }
+.nm-title p { margin: 4px 0 0; color: #E5FCC2; font-size: 1.02rem; }
+.st-key-toptabs_box [data-baseweb="button-group"] { background: rgba(255,255,255,0.16); border-radius: 999px; padding: 4px; gap: 2px; }
 .st-key-toptabs_box button { border: 0 !important; border-radius: 999px !important; background: transparent !important;
-  color: #4B6168 !important; font-weight: 500; min-height: 44px; padding: 0 22px; }
+  color: #E5FCC2 !important; font-weight: 500; min-height: 44px; padding: 0 22px; }
 .st-key-toptabs_box button p { font-size: 1.05rem; }
 .st-key-toptabs_box button[aria-checked="true"], .st-key-toptabs_box button[aria-pressed="true"], .st-key-toptabs_box button[kind="segmented_controlActive"] {
-  background: #0F5F5A !important; color: #fff !important; }
+  background: #E5FCC2 !important; color: #3E5A60 !important; font-weight: 700; }
 
 /* ---- panels (internal scroll) ---- */
-.st-key-left { height: calc(100vh - 6.6rem) !important; max-height: calc(100vh - 6.6rem) !important; overflow-y: auto !important; padding-right: 4px; }
-.st-key-mid, .st-key-right { height: calc(100vh - 13.2rem) !important; max-height: calc(100vh - 13.2rem) !important; overflow-y: auto !important; padding-right: 4px; }
-.st-key-fullpage { height: calc(100vh - 6.6rem) !important; max-height: calc(100vh - 6.6rem) !important; overflow-y: auto !important; padding-right: 6px; }
+.st-key-left { height: calc(100vh - 8.6rem) !important; max-height: calc(100vh - 8.6rem) !important; overflow-y: auto !important; padding-right: 4px; }
+.st-key-mid, .st-key-right { height: calc(100vh - 13.8rem) !important; max-height: calc(100vh - 13.8rem) !important; overflow-y: auto !important; padding-right: 4px; }
+.st-key-fullpage { height: calc(100vh - 8.6rem) !important; max-height: calc(100vh - 8.6rem) !important; overflow-y: auto !important; padding-right: 6px; }
 .st-key-left > div, .st-key-right > div { max-width: 100%; }
 .st-key-left::-webkit-scrollbar, .st-key-mid::-webkit-scrollbar, .st-key-right::-webkit-scrollbar,
 .st-key-fullpage::-webkit-scrollbar { width: 8px; }
 .st-key-left::-webkit-scrollbar-thumb, .st-key-mid::-webkit-scrollbar-thumb, .st-key-right::-webkit-scrollbar-thumb,
-.st-key-fullpage::-webkit-scrollbar-thumb { background: #C4D4D4; border-radius: 8px; }
-.nm-panel-title { font-size: 1.15rem; font-weight: 700; color: #10252B; margin: 2px 0 6px; }
-.nm-sub { font-weight: 700; font-size: 1.05rem; margin: 8px 0 2px; color: #10252B; }
+.st-key-fullpage::-webkit-scrollbar-thumb { background: #C9D9B0; border-radius: 8px; }
+.nm-panel-title { font-size: 1.15rem; font-weight: 700; color: #3A3333; margin: 2px 0 6px; }
+.nm-sub { font-weight: 700; font-size: 1.05rem; margin: 8px 0 2px; color: #3A3333; }
 [data-testid="stForm"] { border: 0; padding: 0; }
-[data-testid="stWidgetLabel"] p { font-size: 0.95rem; color: #26404A; }
+[data-testid="stWidgetLabel"] p { font-size: 0.95rem; color: #594F4F; }
 .st-key-left [data-baseweb="select"] > div { min-height: 38px; }
 
 /* ---- KPI cards ---- */
 .nm-kpis { display: grid; grid-template-columns: 1.15fr 0.9fr 1fr 1.35fr; gap: 14px; margin-bottom: 4px; }
-.nm-kpi { display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid #DCE6E7;
+.nm-kpi { display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid #DDE8C9;
   border-radius: 14px; padding: 10px 12px; min-width: 0; gap: 10px; }
-.nm-kpi .ic { flex: 0 0 2.6rem; height: 2.6rem; border-radius: 50%; background: #E3F0EF; display: flex; align-items: center; justify-content: center; }
+.nm-kpi .ic { flex: 0 0 2.6rem; height: 2.6rem; border-radius: 50%; background: #E5FCC2; display: flex; align-items: center; justify-content: center; }
 .nm-kpi .ic img { width: 22px; height: 22px; }
-.nm-kpi .lab { font-size: 0.95rem; white-space: normal; line-height: 1.2; color: #26404A; }
-.nm-kpi .val { font-size: 1.4rem; font-weight: 500; color: #10252B; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nm-kpi .lab { font-size: 0.95rem; white-space: normal; line-height: 1.2; color: #594F4F; }
+.nm-kpi .val { font-size: 1.4rem; font-weight: 500; color: #3A3333; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ---- nurse cards ---- */
-.st-key-mid [data-testid="stVerticalBlockBorderWrapper"] { background: #fff; border: 1px solid #DCE6E7; border-radius: 14px; }
-.nm-rank { width: 2rem; height: 2rem; border-radius: 50%; background: #E3F0EF; color: #0F5F5A; font-weight: 700;
+.st-key-mid [data-testid="stVerticalBlockBorderWrapper"] { background: #fff; border: 1px solid #DDE8C9; border-radius: 14px; }
+.nm-rank { width: 2rem; height: 2rem; border-radius: 50%; background: #E5FCC2; color: #547980; font-weight: 700;
   display: flex; align-items: center; justify-content: center; font-size: 1rem; margin-top: 3px; }
-.nm-rank.top { background: #0F5F5A; color: #fff; }
+.nm-rank.top { background: #547980; color: #fff; }
 .nm-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
-.nm-name { font-size: 1.3rem; font-weight: 650; color: #10252B; }
-.nm-id { color: #5B7078; font-size: 0.95rem; }
-.nm-pill { background: #D7EEE9; color: #0F5F5A; border-radius: 999px; padding: 2px 12px; font-size: 0.8rem; font-weight: 600; }
-.nm-line { font-size: 1rem; color: #1D343B; margin-bottom: 8px; }
-.nm-chip { display: inline-block; background: #EEF3F4; color: #28434B; border-radius: 6px; padding: 3px 10px; margin: 0 6px 4px 0; font-size: 0.95rem; }
+.nm-name { font-size: 1.3rem; font-weight: 650; color: #3A3333; }
+.nm-id { color: #7A6F6F; font-size: 0.95rem; }
+.nm-pill { background: #D3F1DA; color: #547980; border-radius: 999px; padding: 2px 12px; font-size: 0.8rem; font-weight: 600; }
+.nm-line { font-size: 1rem; color: #4A4242; margin-bottom: 8px; }
+.nm-chip { display: inline-block; background: #EEF3E2; color: #4A4242; border-radius: 6px; padding: 3px 10px; margin: 0 6px 4px 0; font-size: 0.95rem; }
 .nm-chip.warn { background: #FEF3C7; color: #92400E; }
-.nm-expl { font-size: 1rem; color: #1D343B; line-height: 1.5; margin: 6px 0 10px; }
+.nm-expl { font-size: 1rem; color: #4A4242; line-height: 1.5; margin: 6px 0 10px; }
 .nm-score { text-align: center; }
-.nm-score .lab { font-size: 0.95rem; font-weight: 600; color: #10252B; }
-.nm-score .num { font-size: 2.3rem; font-weight: 700; color: #0F5F5A; line-height: 1.15; }
-.st-key-mid .stButton > button { background: #0F5F5A; color: #fff; border: 0; border-radius: 8px; width: 100%; font-weight: 600; min-height: 36px; }
-.st-key-mid .stButton > button:hover { background: #0B4A47; color: #fff; }
-.st-key-mid .stButton > button[kind="primary"] { box-shadow: 0 0 0 3px rgba(15,95,90,0.25); }
+.nm-score .lab { font-size: 0.95rem; font-weight: 600; color: #3A3333; }
+.nm-score .num { font-size: 2.3rem; font-weight: 700; color: #547980; line-height: 1.15; }
+.st-key-mid .stButton > button { background: #547980; color: #fff; border: 0; border-radius: 8px; width: 100%; font-weight: 600; min-height: 36px; }
+.st-key-mid .stButton > button:hover { background: #456268; color: #fff; }
+.st-key-mid .stButton > button[kind="primary"] { box-shadow: 0 0 0 3px rgba(84,121,128,0.25); }
 
 /* ---- right column ---- */
 .st-key-mapbox button { min-height: 32px; padding: 0 8px; white-space: nowrap; }
-.st-key-toptabs_box { background: #E8F0F0; border-radius: 999px; }
-.st-key-mapbox, .st-key-breakbox { background: #fff; border: 1px solid #DCE6E7; border-radius: 14px; padding: 12px 14px; }
+.st-key-mapbox, .st-key-breakbox { background: #fff; border: 1px solid #DDE8C9; border-radius: 14px; padding: 12px 14px; }
 .nm-fn { margin-bottom: 8px; }
 .nm-fn-top { display: flex; justify-content: space-between; font-size: 1rem; margin-bottom: 3px; }
-.nm-fn-track { height: 7px; background: #E3EBEC; border-radius: 99px; overflow: hidden; }
-.nm-fn-fill { height: 100%; background: #0F5F5A; border-radius: 99px; }
+.nm-fn-track { height: 7px; background: #E4EBD6; border-radius: 99px; overflow: hidden; }
+.nm-fn-fill { height: 100%; background: #547980; border-radius: 99px; }
 .nm-bt { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 1.05rem; }
 .nm-bt th:first-child, .nm-bt td:first-child { width: 31%; }
-.nm-bt th { text-align: right; font-weight: 500; color: #3B5159; padding: 5px 4px; border-bottom: 1px solid #E3EBEC; }
-.nm-bt td { text-align: right; padding: 5px 4px; border-bottom: 1px solid #EEF3F4; }
+.nm-bt th { text-align: right; font-weight: 500; color: #6A5F5F; padding: 3px 4px; border-bottom: 1px solid #E4EBD6; }
+.nm-bt td { text-align: right; padding: 3px 4px; border-bottom: 1px solid #EEF3E2; }
 .nm-bt th:first-child, .nm-bt td:first-child { text-align: left; }
-.nm-bt tr.total td { background: #DDEFEC; font-weight: 700; font-size: 1rem; border: 0; }
+.nm-bt tr.total td { background: #E5FCC2; font-weight: 700; font-size: 1rem; border: 0; }
 .nm-empty { background: #FFF7ED; border: 1px solid #FDBA74; border-radius: 12px; padding: 16px 18px; color: #7C2D12; }
-.nm-about { background: #fff; border: 1px solid #DCE6E7; border-radius: 14px; padding: 18px 24px; max-width: 820px; line-height: 1.6; }
-[data-testid="stMetric"] { background: #fff; border: 1px solid #DCE6E7; border-radius: 12px; padding: 10px 14px; }
+.nm-about { background: #fff; border: 1px solid #DDE8C9; border-radius: 14px; padding: 18px 24px; max-width: 820px; line-height: 1.6; }
+[data-testid="stMetric"] { background: #fff; border: 1px solid #DDE8C9; border-radius: 12px; padding: 10px 14px; }
 
 /* ---- cards: score + View Details centred together ---- */
 .nm-score { text-align: center; }
@@ -125,11 +130,29 @@ header[data-testid="stHeader"] { display: none; }
 
 /* ---- map: only the "Expand map" button, no built-in full-screen icon ---- */
 .st-key-mapbox [data-testid="stElementToolbar"], .st-key-mapwrap [data-testid="stElementToolbar"], .st-key-mapwrap_big [data-testid="stElementToolbar"] { display: none !important; }
-.st-key-mapbox .stButton > button { min-height: 42px; padding: 0 14px; background: #fff; border: 1px solid #0F5F5A; color: #0F5F5A; border-radius: 8px; }
-.st-key-mapbox .stButton > button:hover { background: #E3F0EF; }
+.st-key-mapbox .stButton > button { min-height: 42px; padding: 0 14px; background: #fff; border: 1px solid #547980; color: #547980; border-radius: 8px; }
+.st-key-mapbox .stButton > button:hover { background: #E5FCC2; }
 .st-key-mapbox .stButton > button p { font-size: 1.1rem; font-weight: 600; }
-.st-key-mapwrap [data-testid="stDeckGlJsonChart"], .st-key-mapwrap_big [data-testid="stDeckGlJsonChart"] { border-radius: 12px; overflow: hidden; border: 1px solid #DCE6E7; }
+.st-key-mapwrap [data-testid="stDeckGlJsonChart"], .st-key-mapwrap_big [data-testid="stDeckGlJsonChart"] { border-radius: 12px; overflow: hidden; border: 1px solid #DDE8C9; }
 .st-key-breakbox button[role="tab"] p { font-size: 1.05rem; font-weight: 600; }
+
+/* ---- fonts ---- */
+.stApp, .stApp button, .stApp input, .stApp textarea, .stApp [data-baseweb="select"], .stApp [data-baseweb="tab"],
+.stMarkdown, [data-testid="stWidgetLabel"] p, [data-testid="stCaptionContainer"], .nm-kpi, .nm-bt, .nm-chip, .nm-badge, .nm-expl, .nm-line,
+[data-testid="stMetric"], [data-testid="stDialog"] { font-family: "DM Sans", "Segoe UI", system-ui, sans-serif !important; }
+.nm-panel-title, .nm-name, .nm-score .num, .nm-kpi .val, .st-key-left h3, [data-testid="stDialog"] h2, [data-testid="stHeading"] h1, [data-testid="stHeading"] h2, [data-testid="stHeading"] h3 {
+  font-family: "Fraunces", Georgia, serif !important; }
+.nm-kpi .val { font-weight: 600; }
+
+/* ---- nurse card: info badges and skill chips ---- */
+.nm-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.nm-badge { display: inline-flex; align-items: center; gap: 6px; background: #EFFAD9; border: 1px solid #D3EBA8; color: #4A4242;
+  border-radius: 999px; padding: 3px 11px 3px 8px; font-size: 0.88rem; font-weight: 500; }
+.nm-badge img { width: 15px; height: 15px; flex: 0 0 15px; }
+.nm-skills { display: flex; flex-wrap: wrap; gap: 6px; }
+.nm-skills .nm-chip { margin: 0; background: #E6F6EA; border: 1px solid #C2E8CB; color: #3F6B64; border-radius: 999px; padding: 3px 12px; font-size: 0.9rem; }
+.nm-skills .nm-chip.warn { background: #FEF3C7; border-color: #F6D98A; color: #92400E; }
+.st-key-mid [data-testid="stVerticalBlockBorderWrapper"] { box-shadow: 0 1px 3px rgba(89,79,79,0.07); }
 /* ---- phones and tablets (up to 1100px wide): let the whole page scroll, stack everything ---- */
 @media (max-width: 1100px) {
   html { font-size: 16px; }
@@ -140,11 +163,13 @@ header[data-testid="stHeader"] { display: none; }
   [data-testid="stMain"] .block-container { height: auto !important; overflow: visible !important; padding: 0.8rem 0.9rem 4rem; }
   .st-key-left, .st-key-mid, .st-key-right, .st-key-fullpage { height: auto !important; max-height: none !important; overflow: visible !important; padding-right: 0; }
   .nm-title h1 { font-size: 1.7rem; }
+  .st-key-banner { padding: 0.8rem 1rem; }
+  .nm-badge { font-size: 0.88rem; }
   .nm-title p { font-size: 0.95rem; }
   .st-key-toptabs_box button { padding: 0 6px; min-height: 40px; }
   .st-key-toptabs_box button p { font-size: 0.85rem; white-space: nowrap; }
   .nm-kpis { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .nm-kpi .val { font-size: 1.25rem; }
+  .nm-kpi .val { font-size: 1.15rem; white-space: normal; }
 }
 </style>
 """
@@ -177,14 +202,22 @@ def request_label(r: CareRequest) -> str:
     return f"{r.request_id} · {r.patient_name} · {label(r.required_skill)}"
 
 
+_PATH_PIN = '<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>'
+_PATH_BAG = '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>'
+_PATH_CHAT = '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/>'
+
+
 def chip(text: str, kind: str = "") -> str:
     return f'<span class="nm-chip {kind}">{escape(text)}</span>'
 
 
 def icon_img(paths: str) -> str:
-    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#0F5F5A" '
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#547980" '
            f'stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{paths}</svg>')
     return f'<img alt="" src="data:image/svg+xml;base64,{base64.b64encode(svg.encode()).decode()}">'
+
+
+ICON_PIN, ICON_BAG, ICON_CHAT = icon_img(_PATH_PIN), icon_img(_PATH_BAG), icon_img(_PATH_CHAT)
 
 
 def pin_icon(text: str, fill: str) -> dict:
@@ -320,7 +353,7 @@ def build_map(request: CareRequest, matches: list[Match], radius_km: float | Non
     nurses = pd.DataFrame([{
         "lat": m.nurse.lat, "lon": m.nurse.lon, "name": m.nurse.name,
         "detail": f"#{m.rank} · {m.distance_km:.1f} km · score {m.score:.2f}",
-        "from_lat": request.lat, "from_lon": request.lon, "icon": pin_icon(str(m.rank), "#0F5F5A"),
+        "from_lat": request.lat, "from_lon": request.lon, "icon": pin_icon(str(m.rank), "#547980"),
     } for m in matches])
 
     layers = [
@@ -371,9 +404,11 @@ def nurse_card(m: Match, request: CareRequest) -> None:
         c_main.html(
             f'<div class="nm-head"><span class="nm-name">{escape(n.name)}</span>'
             f'<span class="nm-id">{escape(n.nurse_id)}</span>{pill}</div>'
-            f'<div class="nm-line">{m.distance_km:.1f} km away &bull; {n.years_experience} yrs exp &bull; '
-            f'Speaks {escape(", ".join(sorted(n.languages)))}</div>'
-            f'<div>{chips}{warn}</div>'
+            f'<div class="nm-badges">'
+            f'<span class="nm-badge">{ICON_PIN}{m.distance_km:.1f} km away</span>'
+            f'<span class="nm-badge">{ICON_BAG}{n.years_experience} yrs exp</span>'
+            f'<span class="nm-badge">{ICON_CHAT}Speaks {escape(", ".join(sorted(n.languages)))}</span></div>'
+            f'<div class="nm-skills">{chips}{warn}</div>'
         )
         with c_score:
             st.html(f'<div class="nm-score"><div class="lab">Match Score</div><div class="num">{m.score:.2f}</div></div>')
@@ -431,7 +466,7 @@ def show_results(request: CareRequest, weights: Weights, radius_km: float | None
             if h2.button("Expand map", key="expand_map", width="stretch"):
                 map_dialog(request, matches, radius_km)
             with st.container(key="mapwrap"):
-                st.pydeck_chart(build_map(request, matches, radius_km, height_px=340), height=340)
+                st.pydeck_chart(build_map(request, matches, radius_km, height_px=205), height=205)
             st.markdown("**Red dot:** patient. **Numbers:** the ranks on the left.")
         with st.container(key="breakbox"):
             tab_why, tab_funnel = st.tabs(["Why this nurse", "How the list was narrowed"])
@@ -503,7 +538,7 @@ def fairness_page() -> None:
             "Score only": top["top1"],
             "With balancing": balanced.per_nurse.set_index("nurse_id").loc[top.index, "top1"],
         })
-        st.bar_chart(chart, stack=False, color=["#0F766E", "#F59E0B"])
+        st.bar_chart(chart, stack=False, color=["#45ADA8", "#594F4F"])
 
 
 def learning_page() -> None:
@@ -529,11 +564,11 @@ def learning_page() -> None:
         c.metric("Best possible", f"{report.satisfaction_oracle:.1%}", border=True)
     with right:
         st.bar_chart(table.set_index("Factor")[["Hand-set", "Hidden preference", "Learned"]],
-                     stack=False, color=["#94A3B8", "#F59E0B", "#0F766E"])
+                     stack=False, color=["#A89F9F", "#9DE0AD", "#45ADA8"])
 
     st.markdown("##### How much feedback is enough?")
     st.caption("Distance between learned and hidden weights, by number of past matches (lower is better).")
-    st.line_chart(report.curve.set_index("n_matches")["weight_error"], color="#0F766E", height=240)
+    st.line_chart(report.curve.set_index("n_matches")["weight_error"], color="#45ADA8", height=240)
     st.caption(
         f"The weights above were learned from {report.n_training_matches} simulated matches. "
         "Because the feedback comes from a known rule, this shows the method works, not how well it "
@@ -557,13 +592,14 @@ def main() -> None:
     page = st.session_state["page"]
     st.session_state.setdefault("toptabs", page)
 
-    head_l, head_r = st.columns([2.2, 1.5], vertical_alignment="center")
-    head_l.html('<div class="nm-title"><h1>Nurse Match Engine</h1>'
-                "<p>Find the best nurse for your care request with complete transparency.</p></div>")
-    with head_r:
-        with st.container(key="toptabs_box"):
-            st.segmented_control("Pages", PAGES, key="toptabs", label_visibility="collapsed",
-                                 on_change=sync_from_top, width="stretch")
+    with st.container(key="banner"):
+        head_l, head_r = st.columns([2.2, 1.5], vertical_alignment="center")
+        head_l.html('<div class="nm-title"><h1>Nurse Match Engine</h1>'
+                    "<p>Find the best nurse for your care request with complete transparency.</p></div>")
+        with head_r:
+            with st.container(key="toptabs_box"):
+                st.segmented_control("Pages", PAGES, key="toptabs", label_visibility="collapsed",
+                                     on_change=sync_from_top, width="stretch")
 
     if page == "Find a Nurse":
         find_page()
